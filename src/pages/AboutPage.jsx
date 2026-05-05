@@ -13,7 +13,7 @@ import user_first   from "../assets/about-img/user-first.svg";
 import vission      from "../assets/about-img/vission.svg";
 import check        from "../assets/check.svg";
 import Vector       from "../assets/about-img/Vector.svg";
-import Icon1        from "../assets/about-img/icon.svg";
+import Icon1        from "../assets/about-img/Icon.svg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Topfooter from '../components/Topfooter';
 
