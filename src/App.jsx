@@ -30,7 +30,7 @@ import PerformanceAnalysis from "./pages/PerformanceAnalysis";
 import LearnMore from "./pages/LearnMore";
 import SmartTips from "./pages/SmartTips";
 import MarketAlerts from "./pages/MarketAlerts";
-import UpgradeResultsPage from "./pages/Upgraderesultspage";
+import UpgradeResultsPage from "./pages/UpgradeResultspage";
 import LaptopResultsPage from "./pages/Laptopresultspage";
 import CartPage from "./pages/CartPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
