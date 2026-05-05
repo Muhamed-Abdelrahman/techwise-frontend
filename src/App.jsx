@@ -6,15 +6,20 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import SignupVerifyPage from "./pages/SignupVerifyPage";
 import VerifyEmailPage from "./pages/VerifyEmailPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+
+// ✅ FIXED IMPORT
 import NewPasswordPage from "./pages/Newpasswordpage";
+
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import FAQPage from "./pages/FAQPage";
@@ -30,11 +35,13 @@ import PerformanceAnalysis from "./pages/PerformanceAnalysis";
 import LearnMore from "./pages/LearnMore";
 import SmartTips from "./pages/SmartTips";
 import MarketAlerts from "./pages/MarketAlerts";
-import UpgradeResultsPage from "./pages/UpgradeResultspage";
-import LaptopResultsPage from "./pages/Laptopresultspage";
+
+import UpgradeResultsPage from "./pages/UpgradeResultsPage";
+import LaptopResultsPage from "./pages/LaptopResultsPage";
+
 import CartPage from "./pages/CartPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
-import CheckoutPage from "./pages/CheckoutPage"; // عدّل المسار حسب ملفاتك
+import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 
 const authPages = [
@@ -51,7 +58,7 @@ function AppContent() {
   const location = useLocation();
 
   const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn") === "true",
+    localStorage.getItem("isLoggedIn") === "true"
   );
 
   const setCurrentPage = (page) => navigate(`/${page}`);
@@ -70,143 +77,78 @@ function AppContent() {
 
       <main className="flex-1">
         <Routes>
-          <Route
-            path="/"
-            element={<HomePage setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/home"
-            element={<HomePage setCurrentPage={setCurrentPage} />}
-          />
+          <Route path="/" element={<HomePage setCurrentPage={setCurrentPage} />} />
+          <Route path="/home" element={<HomePage setCurrentPage={setCurrentPage} />} />
+
           <Route
             path="/login"
-            element={
-              <LoginPage
-                setCurrentPage={setCurrentPage}
-                setIsLoggedIn={setIsLoggedIn}
-              />
-            }
+            element={<LoginPage setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} />}
           />
+
           <Route
             path="/signup"
-            element={
-              <SignUpPage
-                setCurrentPage={setCurrentPage}
-                setIsLoggedIn={setIsLoggedIn}
-              />
-            }
+            element={<SignUpPage setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} />}
           />
+
           <Route
             path="/signup-verify"
-            element={
-              <SignupVerifyPage
-                setCurrentPage={setCurrentPage}
-                setIsLoggedIn={setIsLoggedIn}
-              />
-            }
+            element={<SignupVerifyPage setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} />}
           />
+
           <Route
             path="/verify"
             element={<VerifyEmailPage setCurrentPage={setCurrentPage} />}
           />
+
           <Route
             path="/reset"
             element={<ResetPasswordPage setCurrentPage={setCurrentPage} />}
           />
+
           <Route
             path="/newpassword"
             element={<NewPasswordPage setCurrentPage={setCurrentPage} />}
           />
-          <Route
-            path="/about"
-            element={<AboutPage setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/contact"
-            element={<ContactPage setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/faq"
-            element={<FAQPage setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/smart-tips"
-            element={<SmartTips setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/market-alerts"
-            element={<MarketAlerts setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/chatbot"
-            element={<ChatbotPage setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/compare"
-            element={<CompareDevicesPage setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/new-device"
-            element={<RecommendationsPage setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/performance"
-            element={<PerformanceAnalysis setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/used-device"
-            element={<UsedDevicesEvaluation setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/upgrade"
-            element={<UpgradeDevice setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/notifications"
-            element={<NotificationsPage setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/checkout"
-            element={<CheckoutPage setCurrentPage={setCurrentPage} />}
-          />
+
+          <Route path="/about" element={<AboutPage setCurrentPage={setCurrentPage} />} />
+          <Route path="/contact" element={<ContactPage setCurrentPage={setCurrentPage} />} />
+          <Route path="/faq" element={<FAQPage setCurrentPage={setCurrentPage} />} />
+          <Route path="/smart-tips" element={<SmartTips setCurrentPage={setCurrentPage} />} />
+          <Route path="/market-alerts" element={<MarketAlerts setCurrentPage={setCurrentPage} />} />
+          <Route path="/chatbot" element={<ChatbotPage setCurrentPage={setCurrentPage} />} />
+          <Route path="/compare" element={<CompareDevicesPage setCurrentPage={setCurrentPage} />} />
+          <Route path="/new-device" element={<RecommendationsPage setCurrentPage={setCurrentPage} />} />
+          <Route path="/performance" element={<PerformanceAnalysis setCurrentPage={setCurrentPage} />} />
+          <Route path="/used-device" element={<UsedDevicesEvaluation setCurrentPage={setCurrentPage} />} />
+          <Route path="/upgrade" element={<UpgradeDevice setCurrentPage={setCurrentPage} />} />
+
+          <Route path="/notifications" element={<NotificationsPage setCurrentPage={setCurrentPage} />} />
+
+          <Route path="/checkout" element={<CheckoutPage setCurrentPage={setCurrentPage} />} />
           <Route path="/order-success" element={<OrderSuccessPage />} />
-          <Route
-            path="/profile"
-            element={
-              <ProfilePage
-                setCurrentPage={setCurrentPage}
-                setIsLoggedIn={setIsLoggedIn}
-              />
-            }
-          />
-          <Route
-            path="/learnmore"
-            element={<LearnMore setCurrentPage={setCurrentPage} />}
-          />
+
+          <Route path="/profile" element={<ProfilePage setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} />} />
+
+          <Route path="/learnmore" element={<LearnMore setCurrentPage={setCurrentPage} />} />
+
           <Route path="/results/upgrade" element={<UpgradeResultsPage />} />
           <Route path="/results/laptop" element={<LaptopResultsPage />} />
-          <Route
-            path="/cart"
-            element={<CartPage setCurrentPage={setCurrentPage} />}
-          />
+
+          <Route path="/cart" element={<CartPage setCurrentPage={setCurrentPage} />} />
           <Route path="/product/:id" element={<ProductDetailsPage />} />
+
           <Route
             path="/dashboard"
             element={
               isLoggedIn ? (
                 <DashboardPage setCurrentPage={setCurrentPage} />
               ) : (
-                <LoginPage
-                  setCurrentPage={setCurrentPage}
-                  setIsLoggedIn={setIsLoggedIn}
-                />
+                <LoginPage setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} />
               )
             }
           />
-          <Route
-            path="*"
-            element={<HomePage setCurrentPage={setCurrentPage} />}
-          />
+
+          <Route path="*" element={<HomePage setCurrentPage={setCurrentPage} />} />
         </Routes>
       </main>
 
