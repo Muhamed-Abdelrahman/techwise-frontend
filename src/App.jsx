@@ -14,7 +14,7 @@ import SignUpPage from "./pages/SignUpPage";
 import SignupVerifyPage from "./pages/SignupVerifyPage";
 import VerifyEmailPage from "./pages/VerifyEmailPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
-import NewPasswordPage from "./pages/Newpasswordpage"; 
+import NewPasswordPage from "./pages/Newpasswordpage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import FAQPage from "./pages/FAQPage";
