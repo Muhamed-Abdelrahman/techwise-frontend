@@ -10,7 +10,7 @@ import {
   Zap,
   CheckCircle,
 } from "lucide-react";
-import "../styles/laptopresultspage.css";
+import "../styles/Laptopresultspage.css";
 
 const LaptopResultsPage = () => {
   const location = useLocation();
