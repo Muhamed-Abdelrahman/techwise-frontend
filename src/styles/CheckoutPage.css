@@ -1,0 +1,508 @@
+/* ═══════════════════════════════════════
+   CheckoutPage.css — TechWise style
+═══════════════════════════════════════ */
+
+.cko-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 100px 0 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cko-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 0 5vw;
+}
+
+/* ── Grid Layout ── */
+.cko-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 28px;
+  padding: 0 5vw;
+  align-items: start;
+}
+
+/* ── Form Cards ── */
+.cko-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cko-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.cko-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+}
+
+.cko-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.cko-full-width {
+  grid-column: 1 / -1;
+}
+
+/* ── Base Fields ── */
+.cp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cp-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.cp-field input {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.15s;
+  font-family: inherit;
+  background: #f9fafb;
+}
+
+.cp-field input:focus {
+  border-color: #2563eb;
+  background: #fff;
+}
+
+/* ── Delivery & Payment Options ── */
+.cko-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cko-option-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fff;
+}
+
+.cko-option-card:hover {
+  border-color: #bfdbfe;
+  background: #f8fafc;
+}
+
+.cko-option-card.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.cko-radio-input {
+  display: none;
+}
+
+.cko-option-icon {
+  width: 40px;
+  height: 40px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  flex-shrink: 0;
+}
+
+.cko-option-card.active .cko-option-icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.cko-option-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cko-option-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.cko-option-desc {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.cko-option-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* ── Promo Code ── */
+.cko-promo-card {
+  padding: 16px 24px;
+}
+
+.cko-promo-row {
+  display: flex;
+  gap: 12px;
+}
+
+.cko-promo-field {
+  flex: 1;
+}
+
+.cko-promo-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1e293b;
+  color: #fff;
+  border: none;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.cko-promo-btn:hover {
+  background: #374151;
+}
+
+/* ── Right Side Summary ── */
+.cko-summary {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  position: sticky;
+  top: 100px;
+}
+
+.cko-summary-items {
+  margin-bottom: 16px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.cko-summary-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cko-summary-item:last-child {
+  border-bottom: none;
+}
+
+.cko-sm-img {
+  width: 60px;
+  height: 60px;
+}
+
+.cko-sm-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cko-sm-meta {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.cko-sm-total {
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 70px;
+  text-align: right;
+}
+
+.cko-secure-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 16px;
+}
+
+/* ── Success Screen ── */
+.cko-success-container {
+  max-width: 500px;
+  margin: 80px auto;
+  text-align: center;
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.cko-success-icon {
+  margin-bottom: 20px;
+}
+
+.cko-success-container h1 {
+  color: #16a34a;
+  margin: 0 0 8px 0;
+  font-size: 28px;
+}
+
+.cko-success-sub {
+  color: #6b7280;
+  margin: 0 0 30px 0;
+}
+
+.cko-success-card {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cko-success-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.cko-success-row strong {
+  color: #1e293b;
+}
+
+.cko-status-badge {
+  background: #dcfce7;
+  color: #16a34a;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cko-home-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── Spinner ── */
+.ct-spin {
+  animation: cp-spin 1s linear infinite;
+}
+
+@keyframes cp-spin { to { transform: rotate(360deg); } }
+
+/* ══════════════════════════════════════════════════════════════
+   ✅  VALIDATION STYLES — Matches CheckoutPage design tokens
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Validated Field Wrapper ── */
+.cp-v-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.cp-v-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.cp-v-required {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+/* ── Input Wrap (for icon positioning) ── */
+.cp-v-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cp-v-input-wrap input {
+  width: 100%;
+  padding: 12px 38px 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1e293b;
+  background: #f9fafb;
+  transition: all 0.15s;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.cp-v-input-wrap input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.cp-v-input-wrap input:focus {
+  border-color: #2563eb;
+  background: #fff;
+}
+
+/* ── Error State ── */
+.cp-v-error .cp-v-input-wrap input,
+.cp-v-input-error {
+  border-color: #f87171 !important;
+  background: #fef2f2 !important;
+}
+
+.cp-v-error .cp-v-input-wrap input:focus,
+.cp-v-input-error:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.cp-v-error label {
+  color: #dc2626;
+}
+
+.cp-v-icon-error {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  animation: cp-v-shake 0.3s ease;
+}
+
+.cp-v-error-msg {
+  font-size: 12px;
+  color: #dc2626;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.4;
+  animation: cp-v-fadeIn 0.2s ease;
+}
+
+/* ── Valid State ── */
+.cp-v-valid .cp-v-input-wrap input {
+  border-color: #4ade80;
+  background: #f0fdf4;
+}
+
+.cp-v-valid .cp-v-input-wrap input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.cp-v-icon-valid {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  animation: cp-v-popIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Form-level Error Banner ── */
+.cp-v-form-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #dc2626;
+  animation: cp-v-fadeIn 0.25s ease;
+}
+
+/* ── Animations ── */
+@keyframes cp-v-shake {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  25% { transform: translateY(-50%) translateX(-4px); }
+  50% { transform: translateY(-50%) translateX(4px); }
+  75% { transform: translateY(-50%) translateX(-2px); }
+}
+
+@keyframes cp-v-fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cp-v-popIn {
+  0% { transform: translateY(-50%) scale(0); }
+  60% { transform: translateY(-50%) scale(1.2); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+
+/* ── Promo field override ── */
+.cko-promo-field .cp-v-field {
+  margin-bottom: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .cko-grid {
+    grid-template-columns: 1fr;
+  }
+  .cko-summary {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .cko-page { padding: 80px 0 60px; }
+  .cko-fields-grid { grid-template-columns: 1fr; }
+  .cko-grid { padding: 0 16px; }
+  .cp-v-form-error { font-size: 12px; padding: 8px 12px; }
+}

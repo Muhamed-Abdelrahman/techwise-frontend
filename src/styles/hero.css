@@ -1,0 +1,511 @@
+:root {
+  --blue: #155DFC;
+  --text-dark: #0A0A0A;
+  --text-muted: #6b7280;
+  --bg-light: #f9fafb;
+  --bg-purple-light: #e9d5ff;
+}
+
+/* ---------- WRAPPER ---------- */
+.hero-wrapper {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f3ff 40%, #ede9fe 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ---------- HERO MAIN ---------- */
+.hero-main-section {
+  background: transparent;
+  padding: 40px 0 0 0;
+  position: relative;
+}
+
+.hero-info-section {
+  background: transparent;
+  padding: 40px 0 100px 0;
+  position: relative;
+}
+
+.hero-container-custom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-info-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* ---------- WELCOME BADGE ---------- */
+.hero-welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 7px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #155dfc;
+  margin: 0 auto 24px;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-welcome-badge img {
+  transition: filter 0.2s ease;
+}
+
+.hero-button-primary img {
+  transition: filter ease;
+  filter: brightness(0) invert(1);
+}
+
+.hero-welcome-badge:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.hero-welcome-badge:hover {
+  background: #5b7cff;
+  color: #ffffff;
+}
+
+/* ---------- LAYOUT ---------- */
+.hero-row-custom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0 40px 0;
+}
+
+.hero-text-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ---------- TEXT ---------- */
+.hero-heading {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.hero-heading-blue {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.hero-subheading {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-bottom: 36px;
+}
+
+.hero-bold-blue {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* ---------- BUTTONS ---------- */
+.hero-buttons-wrapper {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-button-primary {
+  padding: 13px 28px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(21, 93, 252, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(21, 93, 252, 0.45);
+  background: #2563eb;
+}
+
+.hero-button-secondary {
+  padding: 13px 28px;
+  background: #ffffff;
+  color: var(--blue);
+  border: 1.5px solid #dbeafe;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-button-secondary:hover {
+  background: #f0f5ff;
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+}
+
+/* ---------- IMAGE ---------- */
+.hero-image-column {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-laptop-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  height: 420px;
+  perspective: 1600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-laptop-img {
+  max-width: 85%;
+  width: 85%;
+  height: auto;
+  filter: drop-shadow(0 25px 50px rgba(139, 92, 246, 0.22));
+  position: relative;
+  z-index: 2;
+}
+
+.hero-laptop-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(196, 181, 253, 0.45) 0%,
+    rgba(167, 139, 250, 0.25) 40%,
+    transparent 70%
+  );
+  filter: blur(80px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-laptop-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(216, 180, 254, 0.35) 0%,
+    rgba(192, 132, 252, 0.2) 30%,
+    rgba(167, 139, 250, 0.12) 50%,
+    transparent 70%
+  );
+  filter: blur(75px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- INFO SECTION ---------- */
+.hero-info-text {
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 860px;
+  margin: 0 auto 40px auto;
+}
+
+/* ---------- ICONS GRID ---------- */
+.hero-icons-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.hero-icon-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--blue);
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 999px;
+  padding: 8px 18px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.hero-icon-box:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+}
+
+/* ---------- BRANDS ---------- */
+.hero-brands-slider {
+  padding-bottom: 75px;
+  overflow: visible;
+}
+
+.hero-brands-track {
+  display: flex;
+  width: max-content;
+  animation: scrollMarquee 40s linear infinite;
+}
+
+.hero-brands-group {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding-right: 80px;
+}
+
+.hero-brands-group:first-child {
+  padding-left: 40px;
+}
+
+.hero-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.hero-brand:hover {
+  opacity: 1;
+}
+
+.brand-dell-logo {
+  filter: drop-shadow(0 2px 4px rgba(0, 125, 184, 0.1));
+  width: 80px;
+  height: 80px;
+}
+
+.brand-hp-logo {
+  filter: drop-shadow(0 2px 4px rgba(0, 150, 214, 0.1));
+  width: 90px;
+  height: 70px;
+}
+
+.brand-lenovo {
+  font-size: 36px;
+  color: #e2231a;
+  font-weight: 700;
+}
+
+.brand-apple-logo {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  width: 55px;
+  height: 65px;
+}
+
+.brand-asus {
+  font-size: 38px;
+  color: #005baa;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.brand-lg-logo {
+  width: 65px;
+  height: 65px;
+}
+
+.brand-samsung {
+  font-size: 32px;
+  color: #1428a0;
+  font-weight: 700;
+}
+
+.brand-acer {
+  font-size: 36px;
+  color: #83b81a;
+  font-weight: 700;
+}
+
+.brand-msi {
+  font-size: 38px;
+  color: #000000;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ---------- WAVE ---------- */
+.hero-wave-wrapper {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  pointer-events: none;
+  line-height: 0;
+  overflow: visible;
+}
+
+.hero-wave-wrapper svg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-wave-wrapper svg path {
+  fill: #ffffff;
+}
+
+@keyframes scrollMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+  .hero-container-custom,
+  .hero-info-container {
+    padding: 0 40px;
+  }
+
+  .hero-row-custom {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 16px 0 32px 0;
+  }
+
+  .hero-text-column {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-heading {
+    font-size: 38px;
+  }
+
+  .hero-subheading {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .hero-buttons-wrapper {
+    justify-content: center;
+  }
+
+  .hero-laptop-wrapper {
+    max-width: 380px;
+    height: 300px;
+  }
+
+  .hero-laptop-img {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  .hero-icons-grid {
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .hero-icon-box {
+    font-size: 13px;
+    padding: 7px 14px;
+  }
+
+  .hero-brands-group {
+    gap: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-container-custom,
+  .hero-info-container {
+    padding: 0 20px;
+  }
+
+  .hero-welcome-badge {
+    font-size: 14px;
+    padding: 6px 20px;
+  }
+
+  .hero-heading {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-subheading {
+    font-size: 14px;
+  }
+
+  .hero-button-primary,
+  .hero-button-secondary {
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+
+  .hero-laptop-wrapper {
+    max-width: 280px;
+    height: 220px;
+  }
+
+  .hero-info-text {
+    font-size: 15px;
+  }
+
+  .hero-icon-box {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .hero-brands-group {
+    gap: 40px;
+    padding-right: 40px;
+  }
+
+  .brand-lenovo,
+  .brand-asus,
+  .brand-acer,
+  .brand-msi,
+  .brand-samsung {
+    font-size: 26px;
+  }
+}

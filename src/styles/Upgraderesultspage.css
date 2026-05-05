@@ -1,0 +1,326 @@
+/* ═══════════════════════════════════════
+   UpgradeResultsPage.css
+═══════════════════════════════════════ */
+
+.upgrade-results-wrapper {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding: 110px 0 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.upgrade-results-wrapper > .upgrade-page-card {
+  width: 90%;
+}
+
+.results-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 16px;
+  color: #64748b;
+}
+
+/* ── Page Card ── */
+.upgrade-page-card {
+  width: 90%;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 36px 40px 40px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+/* ── Header ── */
+.upgrade-results-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.header-titles h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 0 0 8px;
+}
+
+.header-titles p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ── Stats Bar ── */
+.upgrade-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f4ff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 28px 48px;
+  margin-bottom: 32px;
+  gap: 64px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.stat-value.stat-green { color: #10b981; }
+
+.stat-label {
+  font-size: 0.83rem;
+  color: #64748b;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 52px;
+  background-color: #d1d5db;
+}
+
+/* ── Cards ── */
+.upgrade-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.upgrade-card {
+  display: flex;
+  align-items: stretch;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 220px;
+}
+
+/* ── Image ── */
+.upgrade-card-image {
+  width: 260px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #111827;
+}
+
+.upgrade-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Content ── */
+.upgrade-card-content {
+  flex: 1;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upgrade-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.upgrade-card-title-row h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* Priority badges */
+.priority-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.priority-high   { background: #fee2e2; color: #dc2626; }
+.priority-medium { background: #fef3c7; color: #d97706; }
+.priority-low    { background: #dcfce7; color: #16a34a; }
+
+/* Performance Bar */
+.performance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.performance-label {
+  font-size: 0.83rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+.performance-pct {
+  font-size: 0.83rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+.performance-bar-track {
+  width: 100%;
+  height: 7px;
+  background: #e5e7eb;
+  border-radius: 99px;
+  margin: 4px 0 8px;
+  overflow: hidden;
+}
+
+.performance-bar-fill {
+  height: 100%;
+  background: #111827;
+  border-radius: 99px;
+  transition: width 0.6s ease;
+}
+
+/* Reasons */
+.reasons-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 20px;
+}
+
+.reason-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: #475569;
+}
+
+.reason-icon { color: #10b981; flex-shrink: 0; }
+
+
+
+/* ── Price column ── */
+.upgrade-card-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 20px 20px 20px 0;
+  gap: 4px;
+  flex-shrink: 0;
+  min-width: 110px;
+}
+
+.price-value {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+}
+
+.price-roi {
+  font-size: 0.78rem;
+  color: #10b981;
+  font-weight: 500;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #475569;
+  margin-top: 6px;
+}
+
+.rating-count { color: #94a3b8; }
+
+/* ── Footer ── */
+.upgrade-results-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.new-rec-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.new-rec-btn:hover { background: #eff6ff; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .upgrade-page-card { padding: 20px 16px; }
+  .upgrade-card { flex-direction: column; }
+  .upgrade-card-image { width: 100%; height: 200px; }
+  .upgrade-card-price { align-items: flex-start; padding: 0 16px 16px; }
+  .upgrade-stats-bar { flex-direction: column; gap: 20px; padding: 20px; }
+  .stat-divider { width: 80%; height: 1px; }
+  .reasons-grid { grid-template-columns: 1fr; }
+}
+
+.upgrade-product-name {
+  font-size: 0.83rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── View Details button ── */
+.upgrade-card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view-details-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.view-details-btn:hover { background-color: #15803d; }
+.view-details-btn:disabled { background: #9ca3af; cursor: not-allowed; }

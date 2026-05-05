@@ -1,0 +1,306 @@
+/* ===== ComparisonResultPage.css ===== */
+
+.crp-page {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 40px 20px 60px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #111827;
+}
+
+.crp-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Header ── */
+.crp-header { text-align: center; margin-bottom: 4px; }
+
+.crp-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.crp-subtitle {
+  font-size: 20px;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* ── Device cards row ── */
+.crp-devices-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.crp-device-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.crp-device-img-wrap {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.crp-device-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.crp-device-img-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.crp-device-info { padding: 18px 22px 22px; }
+
+.crp-device-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.crp-device-price-row {
+  margin-bottom: 16px;
+}
+
+.crp-device-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.crp-device-scores-row {
+  display: flex;
+  gap: 40px;
+}
+
+.crp-device-score-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.crp-score-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.crp-score-val {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ── Table card ── */
+.crp-table-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.crp-table-header-block {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.crp-table-title { font-size: 13px; font-weight: 600; color: #111827; }
+.crp-table-sub   { font-size: 12px; color: #6b7280; margin-top: 2px; }
+
+.crp-table { width: 100%; border-collapse: collapse; }
+
+.crp-th {
+  padding: 11px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+}
+.crp-th-a, .crp-th-b { color: #2563eb; }
+
+.crp-tr { border-bottom: 1px solid #f3f4f6; }
+.crp-tr:last-child { border-bottom: none; }
+.crp-tr:hover { background: #fafafa; }
+
+.crp-td { padding: 13px 20px; font-size: 13px; color: #374151; vertical-align: middle; }
+.crp-td-cat { font-weight: 500; color: #111827; }
+
+.crp-score-cell { display: flex; align-items: center; gap: 8px; }
+.crp-score-bold { font-weight: 600; color: #111827; }
+.crp-score-dim  { color: #9ca3af; }
+.crp-trophy     { font-size: 13px; }
+
+.crp-diff-badge {
+  font-size: 11px; font-weight: 600;
+  padding: 3px 8px; border-radius: 20px;
+}
+.crp-badge-a { background: #dbeafe; color: #1d4ed8; }
+.crp-badge-b { background: #ede9fe; color: #6d28d9; }
+
+/* ── Use Case Analysis ── */
+.crp-usecase-section { display: flex; flex-direction: column; gap: 12px; }
+
+.crp-usecase-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.crp-usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.crp-usecase-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.crp-usecase-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.crp-usecase-icon  { font-size: 16px; }
+.crp-usecase-label { font-size: 13px; font-weight: 600; color: #111827; flex: 1; }
+
+.crp-usecase-winner-badge {
+  font-size: 11px; font-weight: 600;
+  padding: 3px 9px; border-radius: 20px;
+}
+.crp-uw-a { background: #dbeafe; color: #1d4ed8; }
+.crp-uw-b { background: #ede9fe; color: #6d28d9; }
+
+.crp-usecase-scores { padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+
+.crp-usecase-device-row { display: flex; flex-direction: column; gap: 6px; }
+
+.crp-usecase-device-name {
+  font-size: 12px; font-weight: 600; color: #374151;
+}
+
+/* Bar */
+.crp-bar-wrap { display: flex; align-items: center; gap: 10px; }
+
+.crp-bar-track {
+  flex: 1; height: 6px;
+  background: #f3f4f6; border-radius: 4px; overflow: hidden;
+}
+
+.crp-bar-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.crp-bar-score      { font-size: 12px; color: #9ca3af; white-space: nowrap; min-width: 48px; text-align: right; }
+.crp-bar-score-win  { color: #2563eb; font-weight: 600; }
+
+.crp-usecase-analysis {
+  font-size: 12px; color: #6b7280;
+  line-height: 1.5; margin: 4px 0 0;
+}
+
+.crp-usecase-divider {
+  height: 1px; background: #f3f4f6; margin: 8px 0;
+}
+
+/* ── Recommendation ── */
+.crp-rec-card {
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  background: #f0fdf4;
+  overflow: hidden;
+}
+
+.crp-rec-top {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #bbf7d0;
+}
+
+.crp-rec-trophy { font-size: 16px; }
+.crp-rec-label  { font-size: 13px; font-weight: 600; color: #166534; }
+
+.crp-rec-body {
+  padding: 24px 20px;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 10px; text-align: center;
+}
+
+.crp-rec-winner { font-size: 20px; font-weight: 800; color: #111827; }
+.crp-rec-reason { font-size: 13px; color: #4b5563; max-width: 520px; line-height: 1.6; }
+
+.crp-rec-score-badge {
+  background: #dcfce7; color: #15803d;
+  font-size: 12px; font-weight: 600;
+  padding: 4px 14px; border-radius: 20px;
+}
+
+/* ── Pros & Cons ── */
+.crp-proscons-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.crp-proscons-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px 22px;
+  background: #fff;
+  display: flex; flex-direction: column; gap: 7px;
+}
+
+.crp-proscons-title { font-size: 14px; font-weight: 700; color: #111827; margin-bottom: 4px; }
+.crp-pros-label     { font-size: 13px; font-weight: 600; color: #16a34a; }
+.crp-cons-label     { font-size: 13px; font-weight: 600; color: #dc2626; margin-top: 6px; }
+
+.crp-pro-item, .crp-con-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: #374151;
+}
+
+.crp-con-x { color: #ef4444; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+
+/* ── Reset ── */
+.crp-reset-btn {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px; font-weight: 500;
+  color: #374151; cursor: pointer;
+  transition: background 0.15s;
+}
+.crp-reset-btn:hover { background: #f9fafb; }
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .crp-devices-row    { grid-template-columns: 1fr; }
+  .crp-proscons-row   { grid-template-columns: 1fr; }
+  .crp-usecase-grid   { grid-template-columns: 1fr; }
+}

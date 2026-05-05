@@ -1,0 +1,377 @@
+.chat-wrapper {
+  background-color: #F0F6FE;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* 90px للناف بار الأساسي + 90px لهيدر الشات = 180px */
+  padding: 180px 0 20px; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chat-container {
+  width: 100%;
+  padding: 0 5vw; 
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* الهيدر الثابت تحت الناف بار الأساسي */
+.chat-header {
+  position: fixed;
+  top: 90px; 
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5vw; 
+  border-bottom: 1px solid #e1e8f0;
+  z-index: 999; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
+}
+
+.chat-header-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bot-avatar-header, .bot-avatar-msg {
+  background-color: #3b82f6; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bot-avatar-header {
+  width: 48px;
+  height: 48px;
+}
+
+.header-title {
+  color: #1a1a1a;
+  font-size: 1.3rem; 
+  letter-spacing: -0.5px;
+  font-weight: bold;
+}
+
+.online-status {
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.online-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.new-chat-btn {
+  background-color: transparent;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.new-chat-btn:hover {
+  background-color: #eef2ff;
+}
+
+.chat-messages-area {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.message-row {
+  display: flex;
+  margin-bottom: 24px;
+  align-items: flex-end;
+}
+
+.message-row.user {
+  justify-content: flex-end;
+}
+
+.message-row.bot {
+  justify-content: flex-start;
+}
+
+.bot-avatar-msg {
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+}
+
+.user-avatar-msg {
+  background-color: #4b5563;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* رسايل الشات */
+.message-bubble {
+  max-width: 60%; 
+  padding: 14px 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.message-bubble.bot {
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 12px 12px 12px 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.message-bubble.user {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border-radius: 12px 12px 4px 12px;
+}
+
+.message-time {
+  font-size: 0.75rem;
+  margin-top: 8px;
+  opacity: 0.6;
+}
+
+.message-time.bot {
+  text-align: left;
+  color: #888;
+}
+
+.message-time.user {
+  text-align: right;
+  color: #e0e0e0;
+}
+
+/* --- تنسيق الخيارات السريعة الجديد (مطابق للصور) --- */
+.quick-options-container {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* محاذاة للشمال */
+  width: 100%;
+}
+
+.options-title {
+  color: #64748b; /* لون رمادي هادي للعنوان */
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  text-align: left;
+  font-weight: 400;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* عمودين جمب بعض */
+  gap: 20px;
+  width: 100%;
+}
+
+.option-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0; /* حدود خفيفة */
+  border-radius: 8px; 
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  box-shadow: none; /* بدون ظل عشان تبقى فلات */
+  width: 100%;
+}
+
+.option-card:hover:not(:disabled) {
+  background-color: #f8fafc; /* رصاصي فاتح عند الهوفر */
+  border-color: #cbd5e1;
+}
+
+.option-icon {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  color: #64748b; /* لون الأيقونة رمادي متناسق */
+}
+
+.option-text {
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* عشان الموبايل ينزلهم تحت بعض */
+@media (max-width: 768px) {
+  .options-grid {
+    grid-template-columns: 1fr; 
+  }
+}
+/* --------------------------------------------------- */
+
+/* منطقة الإدخال */
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.chat-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px;
+  font-size: 0.95rem;
+}
+
+.send-btn {
+  background-color: transparent;
+  color: #3b82f6;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.send-btn:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+.send-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.spin-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.typing-bubble {
+  padding: 16px 24px !important;
+}
+
+.typing-dots span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #a0a0a0;
+  border-radius: 50%;
+  margin-right: 5px;
+  animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+.typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* تنسيقات الأزرار النهائية اللي بتظهر بعد النتيجة */
+.start-new-conv-btn {
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.start-new-conv-btn:hover {
+  background-color: #2563eb;
+}
+
+/* Auto button — بيبقى دايم في آخر الـ options بلون مختلف شوية */
+.option-card-auto {
+  border-style: dashed;
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.option-card-auto .option-icon {
+  color: #3b82f6;
+}
+
+.option-card-auto .option-text {
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.option-card-auto {
+  border-style: dashed;
+  border-color: #3b82f6;
+}
+.option-card-auto .option-icon,
+.option-card-auto .option-text {
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.view-results-btn {
+  width: 100%;
+  background-color: #10b981; 
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+}
+
+.view-results-btn:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
+}
+
+.view-results-btn svg {
+  margin-top: 2px;
+}

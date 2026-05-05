@@ -1,0 +1,126 @@
+/* ---------- FEATURES SECTION ---------- */
+.features-section {
+  background: #ffffff;
+  padding: 80px 0;
+  position: relative;
+}
+
+.features-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* ---------- TITLE ---------- */
+.features-title {
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  color: #155dfc;
+  margin-bottom: 16px;
+}
+
+.features-subtitle {
+  font-size: 18px;
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- GRID ---------- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+/* ---------- FEATURE CARD ---------- */
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(21, 93, 252, 0.15);
+  border-color: #155dfc;
+}
+
+.feature-icon {
+  font-size: 56px;
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0a0a0a;
+  margin-bottom: 12px;
+}
+
+.feature-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin-bottom: 20px;
+  min-height: 48px;
+}
+
+.feature-btn {
+  background: none;
+  border: none;
+  color: #155dfc;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.feature-btn:hover {
+  gap: 8px;
+  color: #0d47cc;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .features-title {
+    font-size: 36px;
+  }
+
+  .features-container {
+    padding: 0 30px;
+  }
+}

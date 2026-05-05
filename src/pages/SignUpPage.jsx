@@ -1,0 +1,297 @@
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/signup.css";
+import logo from "../assets/logo.svg";
+import UserIcon from "../assets/User.svg";
+import LetterIcon from "../assets/Letter.svg";
+import LockIcon from "../assets/Lock.svg";
+import EyeClosedIcon from "../assets/Eye_Closed.svg";
+import { AuthService } from "../services/authService";
+import { GoogleLogin } from "@react-oauth/google";
+
+const SignUpPage = ({ setCurrentPage, setIsLoggedIn }) => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [socialLoading, setSocialLoading] = useState("");
+  const [googleHovered, setGoogleHovered] = useState(false);
+
+  // ================= Google Sign Up =================
+  const handleGoogleSuccess = async (credentialResponse) => {
+    setSocialLoading("google");
+    setError("");
+    try {
+      await AuthService.googleLogin(credentialResponse.credential);
+      setIsLoggedIn && setIsLoggedIn(true);
+      setCurrentPage && setCurrentPage("home");
+    } catch (err) {
+      setError(err.message || "Google sign up failed.");
+    } finally {
+      setSocialLoading("");
+    }
+  };
+
+  // ================= Normal Sign Up =================
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match!");
+      return;
+    }
+
+    if (!agreeToTerms) {
+      setError("You must agree to the terms.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await AuthService.signup(formData);
+      // احفظ الإيميل وروح لصفحة الفيرفاي المنفصلة
+      localStorage.setItem("signupEmail", formData.email);
+      setCurrentPage && setCurrentPage("signup-verify");
+    } catch (err) {
+      setError(err.message || "Registration failed.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="signup-page">
+      <div className="signup-card">
+        <div className="signup-logo">
+          <img src={logo} alt="TECHWISE Logo" />
+        </div>
+
+        <h2 className="signup-title">Create Account</h2>
+        <p className="signup-subtitle">
+          Sign up to get started with Smart PC Advisor
+        </p>
+
+        <form onSubmit={handleSubmit}>
+          {/* First + Last Name */}
+          <div className="name-row">
+            <div className="input-group">
+              <span className="input-group-text">
+                <img src={UserIcon} alt="User" width="24" />
+              </span>
+              <input
+                type="text"
+                className="form-control signup-input"
+                placeholder="First Name"
+                value={formData.firstName}
+                onChange={(e) =>
+                  setFormData({ ...formData, firstName: e.target.value })
+                }
+                required
+              />
+            </div>
+
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control signup-input signup-input-no-icon"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={(e) =>
+                  setFormData({ ...formData, lastName: e.target.value })
+                }
+                required
+              />
+            </div>
+          </div>
+
+          {/* Email */}
+          <div className="mb-3">
+            <div className="input-group">
+              <span className="input-group-text">
+                <img src={LetterIcon} alt="Email" width="24" />
+              </span>
+              <input
+                type="email"
+                className="form-control signup-input"
+                placeholder="example@email.com"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                required
+              />
+            </div>
+          </div>
+
+          {/* Password */}
+          <div className="mb-3">
+            <div className="input-group">
+              <span className="input-group-text">
+                <img src={LockIcon} alt="Password" width="24" />
+              </span>
+              <input
+                type={showPassword ? "text" : "password"}
+                className="form-control signup-input"
+                placeholder="Password"
+                value={formData.password}
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                <img src={EyeClosedIcon} alt="Toggle" width="24" />
+              </button>
+            </div>
+          </div>
+
+          {/* Confirm Password */}
+          <div className="mb-3">
+            <div className="input-group">
+              <span className="input-group-text">
+                <img src={LockIcon} alt="Password" width="24" />
+              </span>
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                className="form-control signup-input"
+                placeholder="Repeat Password"
+                value={formData.confirmPassword}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    confirmPassword: e.target.value,
+                  })
+                }
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              >
+                <img src={EyeClosedIcon} alt="Toggle" width="24" />
+              </button>
+            </div>
+          </div>
+
+          {error && (
+            <p style={{ color: "red", fontSize: 13 }}>{error}</p>
+          )}
+
+          <div className="signup-terms">
+            <input
+              type="checkbox"
+              checked={agreeToTerms}
+              onChange={(e) => setAgreeToTerms(e.target.checked)}
+              required
+            />
+            <label>I agree to the Terms of Service and Privacy Policy</label>
+          </div>
+
+          <button type="submit" className="signup-btn w-100" disabled={loading}>
+            {loading ? (
+              <span>
+                <span className="spinner-border spinner-border-sm me-2" role="status" />
+                Creating Account...
+              </span>
+            ) : (
+              "Sign Up"
+            )}
+          </button>
+        </form>
+
+        <div className="divider">or</div>
+
+        {/* ── Google Full Width Button ── */}
+        <div
+          className="mb-3"
+          onMouseEnter={() => setGoogleHovered(true)}
+          onMouseLeave={() => setGoogleHovered(false)}
+          style={{ position: "relative" }}
+        >
+          <button
+            type="button"
+            className="google-btn"
+            disabled={!!socialLoading}
+            style={{
+              transition: "all 0.3s ease",
+              transform: googleHovered ? "translateY(-2px)" : "translateY(0)",
+              boxShadow: googleHovered
+                ? "0 0 15px rgba(54, 122, 255, 0.4), 0 0 30px rgba(54, 122, 255, 0.2), 0 4px 15px rgba(54, 122, 255, 0.3)"
+                : "none",
+              borderColor: googleHovered ? "#367aff" : "#e5e7eb",
+              background: googleHovered ? "#f0f5ff" : "#ffffff",
+            }}
+          >
+            {socialLoading === "google" ? (
+              <span className="spinner-border spinner-border-sm" />
+            ) : (
+              <>
+                <img
+                  src="https://www.svgrepo.com/show/355037/google.svg"
+                  alt="Google"
+                  width="24"
+                  height="24"
+                />
+                <span>Continue with Google</span>
+              </>
+            )}
+          </button>
+
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              opacity: 0,
+              overflow: "hidden",
+              cursor: "pointer",
+              pointerEvents: socialLoading ? "none" : "auto",
+            }}
+          >
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={() => {
+                setError("Google sign up was cancelled or failed.");
+                setSocialLoading("");
+              }}
+              width="600"
+            />
+          </div>
+        </div>
+
+        <p className="login-link">
+          Already have an account?{" "}
+          <a
+            href="#!"
+            onClick={(e) => {
+              e.preventDefault();
+              setCurrentPage("login");
+            }}
+          >
+            Login
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default SignUpPage;
