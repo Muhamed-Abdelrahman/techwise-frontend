@@ -11,7 +11,7 @@ import {
   CheckCircle,
   ExternalLink,
 } from "lucide-react";
-import "../styles/upgraderesultspage.css";
+import "../styles/UpgradeResultsPage.css";
 
 /* ── helpers ── */
 const getPriorityLabel = (score) => {
