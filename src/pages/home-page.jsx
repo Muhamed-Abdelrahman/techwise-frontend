@@ -1,7 +1,7 @@
 import React from "react";
 
-import Hero from "../components/hero.jsx";
-import Features from "../components/features.jsx";
+import Hero from "../components/heroo.jsx";
+import Features from "../components/featuress.jsx";
 import PerfectForEveryone from "../components/perfect-for-everyone.jsx";
 import HowItWorks from "../components/how-it-works.jsx";
 import WhyChoose from "../components/why-choose.jsx";
