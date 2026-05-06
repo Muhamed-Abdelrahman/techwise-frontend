@@ -1,5 +1,5 @@
 import React from "react";
-import "./ComparisonResultPage.css";
+import "./comparison-result-page.css";
 
 const ComparisonResultPage = ({ result, onReset }) => {
   if (!result) return null;

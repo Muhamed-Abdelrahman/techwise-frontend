@@ -7,7 +7,7 @@ import ConditionPoorIcon from "../assets/EvalutationPrice_img/BrokenScreenIcon.s
 import ConditionFairIcon from "../assets/EvalutationPrice_img/CrackedBackIcon.svg";
 import ConditionGoodIcon from "../assets/EvalutationPrice_img/ScratchesIcon.svg";
 import ConditionLikeNewIcon from "../assets/EvalutationPrice_img/LikeNewIcon.svg";
-import EvaluationResult from "../EvaluationResult/EvaluationResult";
+import EvaluationResult from "../evaluation-result/evaluation-result.jsx";
 import "../styles/UsedDeviceEvaluation.css";
 import DEVICE_DATA from "../data/deviceData";
 

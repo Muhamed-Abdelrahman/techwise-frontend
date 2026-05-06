@@ -1,5 +1,5 @@
 import React from "react";
-import "./PerformanceResult.css";
+import "./performance-result.css";
 import CpuIcon      from "../assets/PerformanceResult_img/CpuIcon.svg";
 import MemoryIcon   from "../assets/PerformanceResult_img/MemoryIcon.svg";
 import GpuIcon      from "../assets/PerformanceResult_img/GpuIcon.svg";

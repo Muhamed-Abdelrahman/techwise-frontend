@@ -4,7 +4,7 @@ import {
   CheckCircle, Package, Truck, Home,
   MapPin, Phone, Mail, CreditCard, Banknote, X,
 } from "lucide-react";
-import FeedbackModal from "./FeedbackModal";
+import FeedbackModal from "./FeedbackModal.jsx";
 import "../styles/OrderSuccessPage.css";
 
 /* ── CONFIG ── */

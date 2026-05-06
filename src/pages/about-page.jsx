@@ -1,21 +1,21 @@
-import React from 'react';
-import light        from "../assets/light.svg";
+import React from "react";
+import light from "../assets/light.svg";
 import accessability from "../assets/about-img/accessability.svg";
-import ai_img       from "../assets/about-img/ai-img.svg";
-import impowering   from "../assets/about-img/impowering.svg";
-import innovation   from "../assets/about-img/innovation.svg";
-import mission      from "../assets/about-img/mission.svg";
+import ai_img from "../assets/about-img/ai-img.svg";
+import impowering from "../assets/about-img/impowering.svg";
+import innovation from "../assets/about-img/innovation.svg";
+import mission from "../assets/about-img/mission.svg";
 import personalized from "../assets/about-img/personalized.svg";
-import realtime     from "../assets/about-img/realtime.svg";
+import realtime from "../assets/about-img/realtime.svg";
 import transparency from "../assets/about-img/transparency.svg";
-import trusted      from "../assets/about-img/trusted.svg";
-import user_first   from "../assets/about-img/user-first.svg";
-import vission      from "../assets/about-img/vission.svg";
-import check        from "../assets/check.svg";
-import Vector       from "../assets/about-img/Vector.svg";
-import Icon1        from "../assets/about-img/Icon.svg";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Topfooter from '../components/Topfooter';
+import trusted from "../assets/about-img/trusted.svg";
+import user_first from "../assets/about-img/user-first.svg";
+import vission from "../assets/about-img/vission.svg";
+import check from "../assets/check.svg";
+import Vector from "../assets/about-img/Vector.svg";
+import Icon1 from "../assets/about-img/Icon.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
+import TopFooter from "../components/top-footer.jsx";
 
 const styles = `
   .ab-page {
@@ -335,25 +335,35 @@ const AboutPage = ({ setCurrentPage }) => {
     <>
       <style>{styles}</style>
       <div className="ab-page">
-
         {/* ── Hero ── */}
         <div className="ab-hero">
           <h1>About TeckWise</h1>
-          <p>Smart PC Advisor is a next-generation AI platform designed to help users make smarter tech decisions. We combine data, analytics, and artificial intelligence to recommend the best computers and upgrades for every user.</p>
+          <p>
+            Smart PC Advisor is a next-generation AI platform designed to help
+            users make smarter tech decisions. We combine data, analytics, and
+            artificial intelligence to recommend the best computers and upgrades
+            for every user.
+          </p>
           <span className="ab-year-badge">Developed in 2026</span>
         </div>
 
         {/* ── Our Story ── */}
-        <div style={{ padding: '0 20px' }}>
+        <div style={{ padding: "0 20px" }}>
           <div className="ab-story-wrap">
             <div className="ab-story-inner">
               <div className="ab-story-img-col">
                 <img src={ai_img} alt="AI" className="main-img" />
-                <div className="ab-float-badge top" style={{ top: '-12px', right: '-12px' }}>
+                <div
+                  className="ab-float-badge top"
+                  style={{ top: "-12px", right: "-12px" }}
+                >
                   <img src={Icon1} alt="" />
                   AI-Powered
                 </div>
-                <div className="ab-float-badge bottom" style={{ left: '-12px' }}>
+                <div
+                  className="ab-float-badge bottom"
+                  style={{ left: "-12px" }}
+                >
                   <img src={Vector} alt="" />
                   Trusted Analysis
                 </div>
@@ -361,10 +371,29 @@ const AboutPage = ({ setCurrentPage }) => {
 
               <div className="ab-story-text">
                 <h2>Our Story</h2>
-                <p>TechWise was born from a simple observation: choosing the right computer or evaluating a used device shouldn't require expert-level knowledge or hours of research.</p>
-                <p>As technology enthusiasts and developers, we experienced firsthand the overwhelming complexity of PC markets—countless specifications, fluctuating prices, and conflicting advice. We knew there had to be a better way.</p>
-                <p>By combining our expertise in artificial intelligence, market analysis, and user experience design, we created a platform that transforms complex data into clear, actionable recommendations. Today, Smart PC Advisor helps thousands of users make confident technology decisions every day.</p>
-                <p>Our journey continues as we refine our algorithms, expand our database, and develop new features to serve our growing community better.</p>
+                <p>
+                  TechWise was born from a simple observation: choosing the
+                  right computer or evaluating a used device shouldn't require
+                  expert-level knowledge or hours of research.
+                </p>
+                <p>
+                  As technology enthusiasts and developers, we experienced
+                  firsthand the overwhelming complexity of PC markets—countless
+                  specifications, fluctuating prices, and conflicting advice. We
+                  knew there had to be a better way.
+                </p>
+                <p>
+                  By combining our expertise in artificial intelligence, market
+                  analysis, and user experience design, we created a platform
+                  that transforms complex data into clear, actionable
+                  recommendations. Today, Smart PC Advisor helps thousands of
+                  users make confident technology decisions every day.
+                </p>
+                <p>
+                  Our journey continues as we refine our algorithms, expand our
+                  database, and develop new features to serve our growing
+                  community better.
+                </p>
               </div>
             </div>
           </div>
@@ -377,14 +406,24 @@ const AboutPage = ({ setCurrentPage }) => {
               <img src={mission} alt="Mission" />
               <h3>Our Mission</h3>
             </div>
-            <p>To empower everyone with the knowledge and tools they need to make smart, informed decisions about computer technology. We believe that with the right information, anyone can find the perfect computer setup for their needs and budget.</p>
+            <p>
+              To empower everyone with the knowledge and tools they need to make
+              smart, informed decisions about computer technology. We believe
+              that with the right information, anyone can find the perfect
+              computer setup for their needs and budget.
+            </p>
           </div>
           <div className="ab-mv-card">
             <div className="ab-mv-header">
               <img src={vission} alt="Vision" />
               <h3>Our Vision</h3>
             </div>
-            <p>A world where technology decisions are transparent, accessible, and tailored to individual needs. We envision a future where buying a computer is as simple and confident as any other major purchase decision.</p>
+            <p>
+              A world where technology decisions are transparent, accessible,
+              and tailored to individual needs. We envision a future where
+              buying a computer is as simple and confident as any other major
+              purchase decision.
+            </p>
           </div>
         </div>
 
@@ -393,32 +432,56 @@ const AboutPage = ({ setCurrentPage }) => {
           <h2>Our Values</h2>
           <div className="ab-values-grid">
             <div className="ab-value-card">
-              <div className="ab-value-icon-wrap" style={{ background: '#F9FAFB' }}>
+              <div
+                className="ab-value-icon-wrap"
+                style={{ background: "#F9FAFB" }}
+              >
                 <img src={transparency} alt="Transparency" />
               </div>
               <h4>Transparency</h4>
-              <p>We believe in honest, clear recommendations without hidden agendas or sponsored content.</p>
+              <p>
+                We believe in honest, clear recommendations without hidden
+                agendas or sponsored content.
+              </p>
             </div>
             <div className="ab-value-card">
-              <div className="ab-value-icon-wrap" style={{ background: '#F9FAFB' }}>
+              <div
+                className="ab-value-icon-wrap"
+                style={{ background: "#F9FAFB" }}
+              >
                 <img src={user_first} alt="User-First" />
               </div>
               <h4>User-First</h4>
-              <p>Every feature we build is designed with our users' needs and success in mind.</p>
+              <p>
+                Every feature we build is designed with our users' needs and
+                success in mind.
+              </p>
             </div>
             <div className="ab-value-card">
-              <div className="ab-value-icon-wrap" style={{ background: '#F9FAFB' }}>
+              <div
+                className="ab-value-icon-wrap"
+                style={{ background: "#F9FAFB" }}
+              >
                 <img src={innovation} alt="Innovation" />
               </div>
               <h4>Innovation</h4>
-              <p>We continuously push the boundaries of what's possible with AI and technology.</p>
+              <p>
+                We continuously push the boundaries of what's possible with AI
+                and technology.
+              </p>
             </div>
             <div className="ab-value-card">
-              <div className="ab-value-icon-wrap" style={{ background: '#F9FAFB' }}>
+              <div
+                className="ab-value-icon-wrap"
+                style={{ background: "#F9FAFB" }}
+              >
                 <img src={accessability} alt="Accessibility" />
               </div>
               <h4>Accessibility</h4>
-              <p>Technology should be accessible to everyone, regardless of their technical background.</p>
+              <p>
+                Technology should be accessible to everyone, regardless of their
+                technical background.
+              </p>
             </div>
           </div>
         </div>
@@ -427,9 +490,26 @@ const AboutPage = ({ setCurrentPage }) => {
         <div className="ab-empower-section">
           <div className="ab-empower-text">
             <h2>Empowering Smart PC Decisions Through AI</h2>
-            <p>TechWise was born from a simple observation: making informed decisions about PC hardware is unnecessarily complicated. Whether you're buying your first gaming PC, upgrading an existing system, or evaluating a used device, you deserve clear, trustworthy guidance.</p>
-            <p>Our platform combines cutting-edge AI technology with comprehensive benchmark data to provide you with personalized insights. We analyze performance metrics, market prices, and compatibility factors to help you make decisions that align with your needs and budget.</p>
-            <p>From students to professionals, gamers to content creators, TechWise serves thousands of users who want to maximize their PC investment. Our mission is to democratize access to expert-level hardware knowledge, making it accessible to everyone.</p>
+            <p>
+              TechWise was born from a simple observation: making informed
+              decisions about PC hardware is unnecessarily complicated. Whether
+              you're buying your first gaming PC, upgrading an existing system,
+              or evaluating a used device, you deserve clear, trustworthy
+              guidance.
+            </p>
+            <p>
+              Our platform combines cutting-edge AI technology with
+              comprehensive benchmark data to provide you with personalized
+              insights. We analyze performance metrics, market prices, and
+              compatibility factors to help you make decisions that align with
+              your needs and budget.
+            </p>
+            <p>
+              From students to professionals, gamers to content creators,
+              TechWise serves thousands of users who want to maximize their PC
+              investment. Our mission is to democratize access to expert-level
+              hardware knowledge, making it accessible to everyone.
+            </p>
           </div>
           <div className="ab-empower-img-col">
             <img src={impowering} alt="Empowering" />
@@ -437,22 +517,34 @@ const AboutPage = ({ setCurrentPage }) => {
         </div>
 
         {/* ── What Makes Us Different ── */}
-        <div style={{ padding: '0 20px' }}>
-          <div className="ab-diff-section" style={{ background: '#fff', border: '1px solid #e2e8f0' }}>
+        <div style={{ padding: "0 20px" }}>
+          <div
+            className="ab-diff-section"
+            style={{ background: "#fff", border: "1px solid #e2e8f0" }}
+          >
             <div className="ab-diff-left">
               <h2>What Makes Us Different</h2>
-              <p>Unlike traditional recommendation sites that rely on static guides or biased reviews, Smart PC Advisor uses real-time AI analysis to provide personalized recommendations based on your specific needs, budget, and usage patterns.</p>
+              <p>
+                Unlike traditional recommendation sites that rely on static
+                guides or biased reviews, Smart PC Advisor uses real-time AI
+                analysis to provide personalized recommendations based on your
+                specific needs, budget, and usage patterns.
+              </p>
               <ul className="ab-checklist">
                 {[
-                  'Real-time market analysis and pricing',
-                  'Compatibility checking and verification',
-                  'Real-time market analysis and pricing',
-                  'Cost-benefit analysis for upgrades',
-                  'Future-proofing recommendations',
-                  'Expert-level technical insights',
+                  "Real-time market analysis and pricing",
+                  "Compatibility checking and verification",
+                  "Real-time market analysis and pricing",
+                  "Cost-benefit analysis for upgrades",
+                  "Future-proofing recommendations",
+                  "Expert-level technical insights",
                 ].map((item, i) => (
                   <li key={i}>
-                    <img src={check} alt="check" style={{ width: 20, height: 20 }} />
+                    <img
+                      src={check}
+                      alt="check"
+                      style={{ width: 20, height: 20 }}
+                    />
                     {item}
                   </li>
                 ))}
@@ -483,9 +575,8 @@ const AboutPage = ({ setCurrentPage }) => {
             </div>
           </div>
         </div>
-
       </div>
-      <Topfooter />
+      <TopFooter />
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./EvaluationResult.css";
+import "./evaluation-result.css";
 
 /* ── Reusable bar ── */
 const MarketBar = ({ label, score }) => (

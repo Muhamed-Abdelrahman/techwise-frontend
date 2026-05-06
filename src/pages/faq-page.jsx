@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import ask from "../assets/ask.svg";
-import Topfooter from '../components/Topfooter';
+import Topfooter from '../components/top-footer.jsx';
 
 const faqs = [
   { q: 'What is TechWise?', a: 'TechWise is an AI-powered platform that helps users analyze PC performance, choose the right computer, evaluate used devices, and get smart upgrade recommendations.' },

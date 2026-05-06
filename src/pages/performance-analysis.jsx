@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../styles/PerformanceAnalysis.css";
-import PerformanceResult from "../PerformanceResult/Performanceresult";
+import PerformanceResult from "../performance-result/performance-result.jsx";
 
 import DEVICE_DATA from "../data/deviceData";
 

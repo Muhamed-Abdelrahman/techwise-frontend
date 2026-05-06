@@ -7,42 +7,40 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/navbar.jsx";
+import Footer from "./components/footer.jsx";
 
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import SignUpPage from "./pages/SignUpPage";
-import SignupVerifyPage from "./pages/SignupVerifyPage";
-import VerifyEmailPage from "./pages/VerifyEmailPage";
-import ResetPasswordPage from "./pages/ResetPasswordPage";
+import HomePage from "./pages/home-page.jsx";
+import LoginPage from "./pages/login-page.jsx";
+import SignUpPage from "./pages/sign-up-page.jsx";
+import SignupVerifyPage from "./pages/signup-verify-page.jsx";
+import VerifyEmailPage from "./pages/verify-email-page.jsx";
+import ResetPasswordPage from "./pages/reset-password-page.jsx";
+import NewPasswordPage from "./pages/new-password-page.jsx";
 
-// ✅ FIXED IMPORT
-import NewPasswordPage from "./pages/Newpasswordpage";
+import AboutPage from "./pages/about-page.jsx";
+import ContactPage from "./pages/contact-page.jsx";
+import FAQPage from "./pages/faq-page.jsx";
+import ChatbotPage from "./pages/chatbot-page.jsx";
+import DashboardPage from "./pages/dashboard-pag.jsx";
+import CompareDevicesPage from "./pages/compare-devices-page.jsx";
+import NotificationsPage from "./pages/notifications-page.jsx";
+import ProfilePage from "./pages/profile-page.jsx";
+import RecommendationsPage from "./pages/recommendations-page.jsx";
+import UsedDevicesEvaluation from "./pages/used-devices-evaluation.jsx";
+import UpgradeDevice from "./pages/upgrade-device.jsx";
+import PerformanceAnalysis from "./pages/performance-analysis.jsx";
+import LearnMore from "./pages/learn-more.jsx";
+import SmartTips from "./pages/smart-tips.jsx";
+import MarketAlerts from "./pages/market-alerts.jsx";
 
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import FAQPage from "./pages/FAQPage";
-import ChatbotPage from "./pages/ChatbotPage";
-import DashboardPage from "./pages/DashboardPage";
-import CompareDevicesPage from "./pages/CompareDevicesPage";
-import NotificationsPage from "./pages/NotificationsPage";
-import ProfilePage from "./pages/ProfilePage";
-import RecommendationsPage from "./pages/RecommendationsPage";
-import UsedDevicesEvaluation from "./pages/UsedDevicesEvaluation";
-import UpgradeDevice from "./pages/UpgradeDevice";
-import PerformanceAnalysis from "./pages/PerformanceAnalysis";
-import LearnMore from "./pages/LearnMore";
-import SmartTips from "./pages/SmartTips";
-import MarketAlerts from "./pages/MarketAlerts";
+import UpgradeResultsPage from "./pages/upgrade-results-page.jsx";
+import LaptopResultsPage from "./pages/laptop-results-page.jsx";
 
-import UpgradeResultsPage from "./pages/UpgradeResultsPage";
-import LaptopResultsPage from "./pages/Laptopresultspage";
-
-import CartPage from "./pages/CartPage";
-import ProductDetailsPage from "./pages/ProductDetailsPage";
-import CheckoutPage from "./pages/CheckoutPage";
-import OrderSuccessPage from "./pages/OrderSuccessPage";
+import CartPage from "./pages/cart-page.jsx";
+import ProductDetailsPage from "./pages/product-details-page.jsx";
+import CheckoutPage from "./pages/checkout-page.jsx";
+import OrderSuccessPage from "./pages/order-success-page.jsx";
 
 const authPages = [
   "/login",

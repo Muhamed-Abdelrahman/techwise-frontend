@@ -22,7 +22,7 @@ import aipowered        from "../assets/learnmore/aipowered.svg";
 import trustedanalysis  from "../assets/learnmore/trustedanalysis.svg";
 import privacypic       from "../assets/learnmore/privacypic.svg";
 import arrow            from "../assets/learnmore/arrow.svg";
-import Topfooter from '../components/Topfooter';
+import Topfooter from '../components/top-footer.jsx';
 
 export default function LearnMore({ setCurrentPage }) {
   return (

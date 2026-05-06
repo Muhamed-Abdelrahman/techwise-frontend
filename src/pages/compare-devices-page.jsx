@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../styles/CompareDevicesPage.css";
 import DEVICE_DATA from "../data/deviceData";
-import ComparisonResultPage from "../ComparisonResultPage/ComparisonResultPage";
+import ComparisonResultPage from "../comparison-result-page/comparison-result-page.jsx";
 
 // ── Searchable Select ──────────────────────────────────────────────────────
 const SearchableSelect = ({

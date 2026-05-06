@@ -6,7 +6,7 @@ import BuildingStrategy from "../assets/BuildingStrategy.svg";
 import warnty from "../assets/warnty.svg";
 import up from "../assets/up.svg";
 import light from "../assets/light.svg";
-import Topfooter from "../components/Topfooter";
+import Topfooter from "../components/top-footer.jsx";
 
 const ChevronIcon = () => (
   <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>

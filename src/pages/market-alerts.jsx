@@ -6,7 +6,7 @@ import gaminglap   from "../assets/marketalerts-img/gaminglap.svg";
 import gpu_price   from "../assets/marketalerts-img/gpu_price.svg";
 import ram_price   from "../assets/marketalerts-img/ram_price.svg";
 import ssd_price   from "../assets/marketalerts-img/ssd_price.svg";
-import Topfooter from '../components/Topfooter';
+import Topfooter from '../components/top-footer.jsx';
 
 const deals = [
   {
