@@ -2,12 +2,12 @@ import React from "react";
 
 import profitional from "../assets/profitional.svg";
 
-import container1 from "../assets/container3.png";
 import userIcon from "../assets/usercopy.svg";
 import container from "../assets/container2.png";
 import container3 from "../assets/container1.png";
 import gamers from "../assets/gamer.svg";
 import container2 from "../assets/container.png";
+import container1 from "../assets/container3.png";
 import Student from "../assets/student.svg";
 
 const users = [
