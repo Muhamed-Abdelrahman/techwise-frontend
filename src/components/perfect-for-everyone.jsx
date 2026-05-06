@@ -1,8 +1,9 @@
 import React from "react";
-import container2 from "../assets/container.png";
+
 import container3 from "../assets/container1.png";
 import container from "../assets/container2.png";
 import container1 from "../assets/container3.png";
+import container2 from "../assets/container.png";
 import userIcon from "../assets/usercopy.svg";
 import gamers from "../assets/gamer.svg";
 import profitional from "../assets/profitional.svg";
@@ -41,43 +42,49 @@ const users = [
 
 const PerfectForEveryone = () => {
   return (
-    <section style={{
-      padding: "64px 24px",
-      fontFamily: "'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif",
-      display: "flex",
-      alignItems: "center",
-    }}>
+    <section
+      style={{
+        padding: "64px 24px",
+        fontFamily: "'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
       <div style={{ maxWidth: "1160px", margin: "0 auto", width: "100%" }}>
-
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <h2 style={{
-            fontSize: "clamp(1.6rem, 4vw, 2.5rem)",
-            fontWeight: "700",
-            color: "#155DFC",
-            margin: "0 0 12px 0",
-          }}>
+          <h2
+            style={{
+              fontSize: "clamp(1.6rem, 4vw, 2.5rem)",
+              fontWeight: "700",
+              color: "#155DFC",
+              margin: "0 0 12px 0",
+            }}
+          >
             Perfect For Everyone
           </h2>
-          <p style={{
-            fontSize: "clamp(0.875rem, 2vw, 1rem)",
-            color: "#6b7280",
-            margin: 0,
-          }}>
+          <p
+            style={{
+              fontSize: "clamp(0.875rem, 2vw, 1rem)",
+              color: "#6b7280",
+              margin: 0,
+            }}
+          >
             Tailored insights for different user needs
           </p>
         </div>
 
         {/* ✅ Grid ريسبونسيف */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: "20px",
-        }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "20px",
+          }}
+        >
           {users.map((user, index) => (
             <UserCard key={index} user={user} />
           ))}
         </div>
-
       </div>
     </section>
   );
@@ -118,33 +125,48 @@ const UserCard = ({ user }) => {
       </div>
 
       <div style={{ padding: "20px 20px 24px 20px" }}>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "10px",
-          marginBottom: "10px",
-        }}>
-          <div style={{
-            width: "36px", height: "36px",
-            borderRadius: "10px",
-            background: user.iconBg,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            flexShrink: 0,
-          }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            marginBottom: "10px",
+          }}
+        >
+          <div
+            style={{
+              width: "36px",
+              height: "36px",
+              borderRadius: "10px",
+              background: user.iconBg,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
             {user.icon}
           </div>
-          <h3 style={{
-            fontSize: "1rem", fontWeight: "700",
-            color: "#111827", margin: 0,
-          }}>
+          <h3
+            style={{
+              fontSize: "1rem",
+              fontWeight: "700",
+              color: "#111827",
+              margin: 0,
+            }}
+          >
             {user.title}
           </h3>
         </div>
 
-        <p style={{
-          fontSize: "0.875rem", color: "#6b7280",
-          margin: 0, lineHeight: "1.65",
-        }}>
+        <p
+          style={{
+            fontSize: "0.875rem",
+            color: "#6b7280",
+            margin: 0,
+            lineHeight: "1.65",
+          }}
+        >
           {user.description}
         </p>
       </div>
