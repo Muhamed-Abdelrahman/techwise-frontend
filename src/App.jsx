@@ -7,9 +7,8 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import Navbar from "./components/nav-bar.jsx";
 import Footer from "./components/footerr.jsx";
-
+import Navbar from "./components/nav-bar.jsx";
 import HomePage from "./pages/home-page.jsx";
 import LoginPage from "./pages/login-page.jsx";
 import SignUpPage from "./pages/sign-up-page.jsx";
