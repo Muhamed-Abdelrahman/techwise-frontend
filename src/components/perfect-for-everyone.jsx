@@ -1,9 +1,12 @@
 import React from "react";
 
+
+
+
+import container2 from "../assets/container.png";
 import container3 from "../assets/container1.png";
 import container from "../assets/container2.png";
 import container1 from "../assets/container3.png";
-import container2 from "../assets/container.png";
 import userIcon from "../assets/usercopy.svg";
 import gamers from "../assets/gamer.svg";
 import profitional from "../assets/profitional.svg";
