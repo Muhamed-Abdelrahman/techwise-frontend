@@ -8,6 +8,19 @@ const MOCK = false;
 
 const delay = (ms = 800) => new Promise((res) => setTimeout(res, ms));
 
+// دالة لاستخراج رسالة الخطأ مهما كان شكلها من الباك إند
+const getErrorMessage = (data) => {
+  // 1. لو الباك إند رجع أخطاء فاليدشن (مثل خطأ طول الباسورد)
+  if (data.errors && typeof data.errors === "object") {
+    const firstErrorKey = Object.keys(data.errors)[0];
+    if (firstErrorKey && data.errors[firstErrorKey].length > 0) {
+      return data.errors[firstErrorKey][0]; // يرجع أول خطأ finds
+    }
+  }
+  // 2. لو الرسالة عادية (زي الإيميل موجود)
+  return data.errorMessege || data.message || data.title || "An error occurred.";
+};
+
 // ── Mock Responses ────────────────────────────────────────────
 const mockUser = {
   useId: "user_001",
@@ -98,7 +111,8 @@ export const AuthService = {
     return data;
   },
 
-  // ✅ POST /api/Auth/SignUp
+
+    // ✅ POST /api/Auth/SignUp
   signup: async ({ firstName, lastName, email, password, confirmPassword }) => {
     if (MOCK) {
       await delay();
@@ -116,9 +130,14 @@ export const AuthService = {
         isTermsAccepted: true,
       }),
     });
+    
     const data = await response.json().catch(() => ({}));
-    if (!response.ok)
-      throw new Error(data.errorMessege || data.message || data.title || "Registration failed.");
+    
+    if (!response.ok) {
+      // استخدام الدالة الجديدة لاستخراج الخطأ
+      throw new Error(getErrorMessage(data));
+    }
+    
     return data;
   },
 
