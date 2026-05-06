@@ -27,14 +27,18 @@ const SignUpPage = ({ setCurrentPage, setIsLoggedIn }) => {
   const [googleHovered, setGoogleHovered] = useState(false);
 
   // ================= دالة مساعدة لاستخراج نص الخطأ من الباك إند =================
+   // ================= دالة مساعدة لاستخراج نص الخطأ من الباك إند =================
   const getErrorMessage = (err) => {
-    // 1. إذا كنت تستخدم Axios (الشكل الأكثر شيوعاً)
+    // 1. التعامل مع شكل الباك إند الخاص بيك بالظبط
     if (err.response && err.response.data) {
-      return err.response.data.message || err.response.data.error || JSON.stringify(err.response.data);
+      return err.response.data.errorMessege || // متطابق مع الباك إند
+             err.response.data.message || 
+             err.response.data.error || 
+             JSON.stringify(err.response.data);
     }
     // 2. إذا كنت تستخدم Fetch API
-    if (err.data && err.data.message) {
-      return err.data.message;
+    if (err.data) {
+      return err.data.errorMessege || err.data.message || "An error occurred";
     }
     // 3. إذا كان الخطأ عبارة عن نص عادي (String)
     if (typeof err === "string") {
