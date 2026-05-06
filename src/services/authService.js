@@ -118,7 +118,7 @@ export const AuthService = {
     });
     const data = await response.json().catch(() => ({}));
     if (!response.ok)
-      throw new Error(data.message || data.title || "Registration failed.");
+      throw new Error(data.errorMessege || data.message || data.title || "Registration failed.");
     return data;
   },
 
