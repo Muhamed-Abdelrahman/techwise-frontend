@@ -6,8 +6,8 @@ import PerfectForEveryone from "../components/perfect-for-everyone.jsx";
 import HowItWorks from "../components/how-it-works.jsx";
 import WhyChoose from "../components/why-choose.jsx";
 import QuickTips from "../components/quick-tips.jsx";
-import Testimonials from "../components/testimonials.jsx";
 import FAQSection from "../components/faq-section.jsx";
+import Testimonials from "../components/test-monials.jsx";
 
 const HomePage = ({ setCurrentPage }) => {
   return (
