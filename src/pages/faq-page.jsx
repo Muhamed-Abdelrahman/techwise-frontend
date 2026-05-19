@@ -30,12 +30,16 @@ export default function FAQPage({ setCurrentPage }) {
       background: '#f9fafb',
       minHeight: '100vh',
       fontFamily: "'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif",
+      overflowX: 'hidden',
     }}>
       <style>{`
         .faq-page-inner {
           max-width: 900px;
           margin: 0 auto;
           padding: clamp(32px, 5vw, 56px) clamp(16px, 4vw, 24px) 60px;
+          box-sizing: border-box;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
         }
         .faq-search-input {
           width: 100%;
@@ -64,15 +68,19 @@ export default function FAQPage({ setCurrentPage }) {
         }
         .contact-btn:hover { opacity: .88; }
 
-        /* ✅ الـ paragraph في سطر واحد */
+        /* ✅ subtitle بيتلتف بطبيعي */
         .faq-subtitle {
           font-size: 0.82rem;
           color: #6b7280;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
           margin: 0;
-          display: block;
+        }
+
+        /* ✅ نص contact بيتلتف بطبيعي */
+        .faq-contact-text {
+          font-size: 0.8rem;
+          color: #4b5563;
+          margin: 0 auto 20px;
+          line-height: 1.6;
         }
       `}</style>
 
@@ -83,13 +91,12 @@ export default function FAQPage({ setCurrentPage }) {
           <h1 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: '700', color: '#155DFC', margin: '0 0 8px 0' }}>
             Frequently Asked Questions
           </h1>
-          {/* ✅ سطر واحد ثابت */}
           <p className="faq-subtitle">
             Find Quick answers to common questions about TechWise
           </p>
         </div>
 
-        {/* ✅ Search + FAQ List في كونتينر واحد */}
+        {/* Search + FAQ List */}
         <div style={{
           background: '#fff',
           border: '1px solid #e5e9f0',
@@ -98,7 +105,7 @@ export default function FAQPage({ setCurrentPage }) {
           marginBottom: 'clamp(20px, 4vw, 36px)',
         }}>
 
-          {/* ✅ Search بأيقونة lucide زي الأصل */}
+          {/* Search */}
           <div style={{ padding: 'clamp(16px, 3vw, 28px)', borderBottom: '1px solid #f0f2f8' }}>
             <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
               <Search size={18} style={{ position: 'absolute', left: '14px', color: '#9ca3af' }} />
@@ -126,7 +133,7 @@ export default function FAQPage({ setCurrentPage }) {
                 <h3 style={{ fontSize: 'clamp(0.875rem, 2vw, 0.9375rem)', fontWeight: '700', color: '#111827', marginBottom: '8px', lineHeight: '1.5' }}>
                   {faq.q}
                 </h3>
-                <p style={{ fontSize: '.8.5rem', color: '#4b5563', lineHeight: '1.75', margin: 0 }}>
+                <p style={{ fontSize: '0.85rem', color: '#4b5563', lineHeight: '1.75', margin: 0 }}>
                   {faq.a}
                 </p>
               </div>
@@ -135,16 +142,38 @@ export default function FAQPage({ setCurrentPage }) {
         </div>
 
         {/* Still have questions */}
-        <div style={{ background: '#fff', border: '1px solid #e5e9f0', borderRadius: '16px', padding: 'clamp(28px, 5vw, 48px) clamp(20px, 4vw, 40px)', textAlign: 'center' }}>
-          <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#DBEAFE', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+        <div style={{
+          background: '#fff',
+          border: '1px solid #e5e9f0',
+          borderRadius: '16px',
+          padding: 'clamp(28px, 5vw, 48px) clamp(20px, 4vw, 40px)',
+          textAlign: 'center',
+          boxSizing: 'border-box',
+          overflow: 'hidden',
+        }}>
+          <div style={{
+            width: '56px',
+            height: '56px',
+            borderRadius: '50%',
+            background: '#DBEAFE',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 16px',
+          }}>
             <img src={ask} alt="contact" width={26} height={26} />
           </div>
-          <h2 style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', fontWeight: '700', color: '#111827', marginBottom: '8px' }}>
+          <h2 style={{
+            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
+            fontWeight: '700',
+            color: '#111827',
+            marginBottom: '8px',
+          }}>
             Still have questions?
           </h2>
-        <p style={{ fontSize:'0.8rem', color: '#4b5563', margin: '0 auto 20px', whiteSpace: 'nowrap' }}>
-  Can't find the answer you're looking for? Our support team is here to help you with any questions or concerns.
-</p>
+          <p className="faq-contact-text">
+            Can't find the answer you're looking for? Our support team is here to help you with any questions or concerns.
+          </p>
           <button className="contact-btn" onClick={() => setCurrentPage('contact')}>
             Contact Us
           </button>

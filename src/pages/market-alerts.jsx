@@ -127,51 +127,7 @@ export default function MarketAlerts({ setCurrentPage }) {
           </p>
         </div>
 
-        {/* Alert Notifications Bar */}
-        <div style={{
-          background: "#fff",
-          border: "1px solid #e5e9f0",
-          borderRadius: "14px",
-          padding: "16px 24px",
-          marginBottom: "28px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-              stroke="#155DFC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-            <div>
-              <div style={{ fontSize: "1.05rem", fontWeight: "700", color: "#111827" }}>Alert Notifications</div>
-              <div style={{ fontSize: "0.88rem", color: "#9ca3af", marginTop: "2px" }}>
-                Get notified about price drops and deals on your watchlist
-              </div>
-            </div>
-          </div>
-
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
-            <span style={{ fontSize: "0.95rem", color: "#374151" }}>Enable Notifications</span>
-            <div
-              onClick={() => setNotifications(!notifications)}
-              style={{
-                width: "44px", height: "24px", borderRadius: "12px",
-                background: notifications ? "#155DFC" : "#d1d5db",
-                cursor: "pointer", position: "relative", transition: "background 0.2s", flexShrink: 0,
-              }}
-            >
-              <div style={{
-                width: "18px", height: "18px", borderRadius: "50%", background: "#fff",
-                position: "absolute", top: "3px",
-                left: notifications ? "23px" : "3px",
-                transition: "left 0.2s",
-              }} />
-            </div>
-          </div>
-        </div>
-
+        
         {/* Section title */}
         <h2 style={{ fontSize: "1.3rem", fontWeight: "700", color: "#111827", margin: "0 0 14px" }}>
           Current Market Deals

@@ -286,22 +286,7 @@ const SmartTips = ({ setCurrentPage }) => (
         ))}
       </div>
 
-      <div style={{ border: "solid #EFF7FF 1px", borderRadius: 10, padding: "36px 24px", background: "#EFF7FF", textAlign: "center" }}>
-        {/* ✅ CTA title أكبر */}
-        <div style={{ fontWeight: 700, fontSize: 26, color: "#1a1a2e", marginBottom: 10 }}>
-          Ready to Save Money on Your Next Purchase?
-        </div>
-        {/* ✅ CTA subtitle أكبر */}
-        <div style={{ fontSize: 17, color: "#555", marginBottom: 22 }}>
-          Use our recommendation tools to find the best deals and make informed decisions.
-        </div>
-        <button
-          onClick={() => setCurrentPage && setCurrentPage("new-device")}
-          style={{ background: "#155DFC", color: "#fff", border: "none", borderRadius: 6, padding: "12px 28px", fontSize: 14, fontWeight: 600, cursor: "pointer" }}
-        >
-          Get Recommendations
-        </button>
-      </div>
+      
     </div>
     
   </>

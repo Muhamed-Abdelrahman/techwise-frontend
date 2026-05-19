@@ -11,6 +11,9 @@ const styles = `
     padding: 60px 60px 30px 60px;
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
     color: #ffffff;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   .ft-grid {
     display: grid;
@@ -32,20 +35,86 @@ const styles = `
     color: rgba(255,255,255,0.4);
     margin: 0;
   }
+
+  /* Logo responsive */
+  .ft-logo-img {
+    height: auto;
+    max-width: 180px;
+    width: 100%;
+    display: block;
+  }
+
+  /* Contact info text — يكسر لو طويل */
+  .ft-contact-text {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Links */
+  .ft-link {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 0.15s;
+  }
+  .ft-link:hover { color: #fff; }
+
+  /* Social icon */
+  .ft-social-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color 0.15s;
+  }
+  .ft-social-circle:hover {
+    border-color: rgba(255,255,255,0.4);
+  }
+
+  /* ── Tablet ── */
   @media (max-width: 1024px) {
-    .ft-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .ft-grid { grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+    .ft-logo-img { max-width: 160px; }
   }
+
+  /* ── Mobile Large ── */
   @media (max-width: 768px) {
-    .ft-grid   { grid-template-columns: 1fr 1fr; }
-    .ft-footer { padding: 40px 24px 24px; }
+    .ft-footer { padding: 36px 20px 20px; }
+    .ft-grid { grid-template-columns: 1fr 1fr; gap: 28px; padding-bottom: 32px; }
+    .ft-logo-img { max-width: 140px; }
+    .ft-social-circle { width: 36px; height: 36px; }
+    .ft-social-circle img { width: 16px; height: 16px; }
   }
-  @media (max-width: 480px) {
-    .ft-grid   { grid-template-columns: 1fr; }
-    .ft-footer { padding: 32px 16px 20px; }
+
+  /* ── Mobile Small ── */
+  @media (max-width: 540px) {
+    .ft-footer { padding: 28px 16px 16px; }
+    .ft-grid { grid-template-columns: 1fr; gap: 24px; padding-bottom: 24px; }
+    .ft-logo-img { max-width: 120px; }
+    .ft-bottom { padding-top: 18px; }
+    .ft-bottom p { font-size: 0.8rem; }
+  }
+
+  /* ── Very Small ── */
+  @media (max-width: 360px) {
+    .ft-footer { padding: 24px 12px 14px; }
+    .ft-grid { gap: 20px; padding-bottom: 20px; }
+    .ft-logo-img { max-width: 100px; }
+    .ft-bottom p { font-size: 0.75rem; }
+    .ft-social-circle { width: 34px; height: 34px; }
+    .ft-social-circle img { width: 14px; height: 14px; }
   }
 `;
 
-// الـ pages دي محتاجة login
 const PROTECTED_PAGES = ["chatbot", "used-device", "performance", "compare"];
 
 export default function Footer({ setCurrentPage }) {
@@ -60,222 +129,118 @@ export default function Footer({ setCurrentPage }) {
     }
   };
 
+  const renderLinks = (links) =>
+    links.map((link, i) => (
+      <div key={i} style={{ marginBottom: "12px" }}>
+        <a
+          className="ft-link"
+          onClick={(e) => handleNav(e, link.page)}
+          href="#"
+        >
+          {link.label}
+        </a>
+      </div>
+    ));
+
   return (
     <>
       <style>{styles}</style>
       <footer className="ft-footer">
         <div className="ft-grid">
+
           {/* Logo & Description */}
-          <div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                marginBottom: "16px",
-              }}
-            >
-              <img src={logo} alt="TechWise" width="200" height="60" />
+          <div style={{ minWidth: 0 }}>
+            <div style={{ marginBottom: "16px" }}>
+              <img
+                src={logo}
+                alt="TechWise"
+                className="ft-logo-img"
+              />
             </div>
-            <p
-              style={{
-                fontSize: "0.875rem",
-                color: "rgba(255,255,255,0.6)",
-                lineHeight: "1.7",
-                margin: 0,
-              }}
-            >
-              Empowering users to optimize
-              <br />
-              their PCs through AI-powered
-              <br />
-              insights and recommendations.
+            <p style={{
+              fontSize: "0.875rem",
+              color: "rgba(255,255,255,0.6)",
+              lineHeight: "1.7",
+              margin: 0,
+            }}>
+              Empowering users to optimize their PCs through AI-powered insights and recommendations.
             </p>
           </div>
 
           {/* Quick Links 1 */}
-          <div>
-            <h4
-              style={{
-                fontSize: "1rem",
-                fontWeight: "700",
-                color: "#fff",
-                margin: "0 0 20px 0",
-              }}
-            >
+          <div style={{ minWidth: 0 }}>
+            <h4 style={{ fontSize: "1rem", fontWeight: "700", color: "#fff", margin: "0 0 20px 0" }}>
               Quick Links
             </h4>
-            {[
+            {renderLinks([
               { label: "Home", page: "home" },
               { label: "Device Recommendation", page: "chatbot" },
               { label: "Device Evaluation", page: "used-device" },
               { label: "Performance Analysis", page: "performance" },
-            ].map((link, i) => (
-              <div key={i} style={{ marginBottom: "12px" }}>
-                <a
-                  onClick={(e) => handleNav(e, link.page)}
-                  href="#"
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "rgba(255,255,255,0.6)",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  {link.label}
-                </a>
-              </div>
-            ))}
+            ])}
           </div>
 
           {/* Quick Links 2 */}
-          <div>
-            <h4
-              style={{
-                fontSize: "1rem",
-                fontWeight: "700",
-                color: "#fff",
-                margin: "0 0 20px 0",
-              }}
-            >
+          <div style={{ minWidth: 0 }}>
+            <h4 style={{ fontSize: "1rem", fontWeight: "700", color: "#fff", margin: "0 0 20px 0" }}>
               Quick Links
             </h4>
-            {[
+            {renderLinks([
               { label: "Compare 2 Devices", page: "compare" },
               { label: "Device Upgrade", page: "chatbot" },
-              { label: "Smart Tips", page: "smart tips" },
-              { label: "Market Trends", page: "market alerts" },
-            ].map((link, i) => (
-              <div key={i} style={{ marginBottom: "12px" }}>
-                <a
-                  onClick={(e) => handleNav(e, link.page)}
-                  href="#"
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "rgba(255,255,255,0.6)",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  {link.label}
-                </a>
-              </div>
-            ))}
+              { label: "Smart Tips", page: "smart-tips" },
+              { label: "Market Trends", page: "market-alerts" },
+            ])}
           </div>
 
           {/* Support */}
-          <div>
-            <h4
-              style={{
-                fontSize: "1rem",
-                fontWeight: "700",
-                color: "#fff",
-                margin: "0 0 20px 0",
-              }}
-            >
+          <div style={{ minWidth: 0 }}>
+            <h4 style={{ fontSize: "1rem", fontWeight: "700", color: "#fff", margin: "0 0 20px 0" }}>
               Support
             </h4>
-            {[
+            {renderLinks([
               { label: "Chat with AI bot", page: "chatbot" },
               { label: "FAQ", page: "faq" },
               { label: "About Us", page: "about" },
               { label: "Contact Support", page: "contact" },
-            ].map((link, i) => (
-              <div key={i} style={{ marginBottom: "12px" }}>
-                <a
-                  onClick={(e) => handleNav(e, link.page)}
-                  href="#"
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "rgba(255,255,255,0.6)",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  {link.label}
-                </a>
-              </div>
-            ))}
+            ])}
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4
-              style={{
-                fontSize: "1rem",
-                fontWeight: "700",
-                color: "#fff",
-                margin: "0 0 20px 0",
-              }}
-            >
+          <div style={{ minWidth: 0 }}>
+            <h4 style={{ fontSize: "1rem", fontWeight: "700", color: "#fff", margin: "0 0 20px 0" }}>
               Contact Info
             </h4>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                marginBottom: "14px",
-              }}
-            >
+
+            {/* Email */}
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px", minWidth: 0 }}>
               <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="rgba(255,255,255,0.6)"
-                strokeWidth="2"
+                width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="rgba(255,255,255,0.6)" strokeWidth="2"
+                style={{ flexShrink: 0 }}
               >
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="M22 7l-10 7L2 7" />
               </svg>
-              <span
-                style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.6)" }}
-              >
-                support@TechWise.com
-              </span>
+              <span className="ft-contact-text">support@TechWise.com</span>
             </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                marginBottom: "24px",
-              }}
-            >
+
+            {/* Phone */}
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px", minWidth: 0 }}>
               <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="rgba(255,255,255,0.6)"
-                strokeWidth="2"
+                width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="rgba(255,255,255,0.6)" strokeWidth="2"
+                style={{ flexShrink: 0 }}
               >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-              <span
-                style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.6)" }}
-              >
-                +1 (555) 123-4567
-              </span>
+              <span className="ft-contact-text">+1 (555) 123-4567</span>
             </div>
 
             {/* Social Icons */}
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
               {[linked, facebook, Link, twitter].map((icon, i) => (
-                <div
-                  key={i}
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                  }}
-                >
+                <div key={i} className="ft-social-circle">
                   <img src={icon} alt="social" width="18" height="18" />
                 </div>
               ))}
