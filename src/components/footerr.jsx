@@ -46,14 +46,7 @@ const styles = `
 `;
 
 // الـ pages دي محتاجة login
-const PROTECTED_PAGES = [
-  "chatbot",
-  "used-device",
-  "performance",
-  "compare",
-  "smart tips",
-  "market alerts",
-];
+const PROTECTED_PAGES = ["chatbot", "used-device", "performance", "compare"];
 
 export default function Footer({ setCurrentPage }) {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
