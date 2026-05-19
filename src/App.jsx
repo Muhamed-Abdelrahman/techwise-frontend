@@ -87,11 +87,18 @@ function AppContent() {
 
   // ← ده اللي بيمنع تغيير الـ URL يدوياً
   useEffect(() => {
-    if (PROTECTED_PATHS.includes(location.pathname)) {
-      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-      if (!isLoggedIn) {
-        navigate("/signup", { replace: true });
-      }
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    // لو مسجل ودخل على صفحة auth → يحوله لـ home
+    if (isLoggedIn && authPages.includes(location.pathname)) {
+      navigate("/home", { replace: true });
+      return;
+    }
+
+    // لو مش مسجل ودخل على صفحة محمية → يحوله لـ signup
+    if (!isLoggedIn && PROTECTED_PATHS.includes(location.pathname)) {
+      navigate("/signup", { replace: true });
+      return;
     }
   }, [location.pathname, navigate]);
 
@@ -108,39 +115,187 @@ function AppContent() {
 
       <main className="flex-1">
         <Routes>
-          <Route path="/" element={<HomePage setCurrentPage={setCurrentPage} />} />
-          <Route path="/home" element={<HomePage setCurrentPage={setCurrentPage} />} />
+          <Route
+            path="/"
+            element={<HomePage setCurrentPage={setCurrentPage} />}
+          />
+          <Route
+            path="/home"
+            element={<HomePage setCurrentPage={setCurrentPage} />}
+          />
 
-          <Route path="/login" element={<LoginPage setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/signup" element={<SignUpPage setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/signup-verify" element={<SignupVerifyPage setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/verify" element={<VerifyEmailPage setCurrentPage={setCurrentPage} />} />
-          <Route path="/reset" element={<ResetPasswordPage setCurrentPage={setCurrentPage} />} />
-          <Route path="/newpassword" element={<NewPasswordPage setCurrentPage={setCurrentPage} />} />
+          <Route
+            path="/login"
+            element={
+              <LoginPage
+                setCurrentPage={setCurrentPage}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <SignUpPage
+                setCurrentPage={setCurrentPage}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
+          <Route
+            path="/signup-verify"
+            element={
+              <SignupVerifyPage
+                setCurrentPage={setCurrentPage}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
+          <Route
+            path="/verify"
+            element={<VerifyEmailPage setCurrentPage={setCurrentPage} />}
+          />
+          <Route
+            path="/reset"
+            element={<ResetPasswordPage setCurrentPage={setCurrentPage} />}
+          />
+          <Route
+            path="/newpassword"
+            element={<NewPasswordPage setCurrentPage={setCurrentPage} />}
+          />
 
-          <Route path="/about" element={<AboutPage setCurrentPage={setCurrentPage} />} />
-          <Route path="/contact" element={<ContactPage setCurrentPage={setCurrentPage} />} />
-          <Route path="/faq" element={<FAQPage setCurrentPage={setCurrentPage} />} />
-          <Route path="/learnmore" element={<LearnMore setCurrentPage={setCurrentPage} />} />
+          <Route
+            path="/about"
+            element={<AboutPage setCurrentPage={setCurrentPage} />}
+          />
+          <Route
+            path="/contact"
+            element={<ContactPage setCurrentPage={setCurrentPage} />}
+          />
+          <Route
+            path="/faq"
+            element={<FAQPage setCurrentPage={setCurrentPage} />}
+          />
+          <Route
+            path="/learnmore"
+            element={<LearnMore setCurrentPage={setCurrentPage} />}
+          />
 
           {/* ← الصفحات المحمية بتتغلف بـ ProtectedRoute */}
-          <Route path="/smart-tips" element={<ProtectedRoute><SmartTips setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/market-alerts" element={<ProtectedRoute><MarketAlerts setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/chatbot" element={<ProtectedRoute><ChatbotPage setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/compare" element={<ProtectedRoute><CompareDevicesPage setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/performance" element={<ProtectedRoute><PerformanceAnalysis setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/used-device" element={<ProtectedRoute><UsedDevicesEvaluation setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/notifications" element={<ProtectedRoute><NotificationsPage setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/profile" element={<ProtectedRoute><ProfilePage setCurrentPage={setCurrentPage} setIsLoggedIn={setIsLoggedIn} /></ProtectedRoute>} />
-          <Route path="/dashboard" element={<ProtectedRoute><DashboardPage setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/cart" element={<ProtectedRoute><CartPage setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/checkout" element={<ProtectedRoute><CheckoutPage setCurrentPage={setCurrentPage} /></ProtectedRoute>} />
-          <Route path="/results/upgrade" element={<ProtectedRoute><UpgradeResultsPage /></ProtectedRoute>} />
-          <Route path="/results/laptop" element={<ProtectedRoute><LaptopResultsPage /></ProtectedRoute>} />
+          <Route
+            path="/smart-tips"
+            element={
+              <ProtectedRoute>
+                <SmartTips setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/market-alerts"
+            element={
+              <ProtectedRoute>
+                <MarketAlerts setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/chatbot"
+            element={
+              <ProtectedRoute>
+                <ChatbotPage setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/compare"
+            element={
+              <ProtectedRoute>
+                <CompareDevicesPage setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/performance"
+            element={
+              <ProtectedRoute>
+                <PerformanceAnalysis setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/used-device"
+            element={
+              <ProtectedRoute>
+                <UsedDevicesEvaluation setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/notifications"
+            element={
+              <ProtectedRoute>
+                <NotificationsPage setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage
+                  setCurrentPage={setCurrentPage}
+                  setIsLoggedIn={setIsLoggedIn}
+                />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPage setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <CartPage setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedRoute>
+                <CheckoutPage setCurrentPage={setCurrentPage} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/results/upgrade"
+            element={
+              <ProtectedRoute>
+                <UpgradeResultsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/results/laptop"
+            element={
+              <ProtectedRoute>
+                <LaptopResultsPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/order-success" element={<OrderSuccessPage />} />
           <Route path="/product/:id" element={<ProductDetailsPage />} />
 
-          <Route path="*" element={<HomePage setCurrentPage={setCurrentPage} />} />
+          <Route
+            path="*"
+            element={<HomePage setCurrentPage={setCurrentPage} />}
+          />
         </Routes>
       </main>
 
