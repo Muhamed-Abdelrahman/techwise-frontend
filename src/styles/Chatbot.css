@@ -3,8 +3,8 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  /* 90px للناف بار الأساسي + 90px لهيدر الشات = 180px */
-  padding: 180px 0 20px; 
+  /* 90px للناف بار الأساسي + 80px تقريباً لهيدر الشات */
+  padding: 170px 0 20px; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -19,7 +19,7 @@
 /* الهيدر الثابت تحت الناف بار الأساسي */
 .chat-header {
   position: fixed;
-  top: 90px; 
+  top: 90px; /* نفس ارتفاع الناف بار في الشاشات الكبيرة */
   left: 0;
   width: 100%;
   background-color: #ffffff; 
@@ -167,18 +167,18 @@
   color: #e0e0e0;
 }
 
-/* --- تنسيق الخيارات السريعة الجديد (مطابق للصور) --- */
+/* --- تنسيق الخيارات السريعة --- */
 .quick-options-container {
   margin-top: 15px;
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* محاذاة للشمال */
+  align-items: flex-start;
   width: 100%;
 }
 
 .options-title {
-  color: #64748b; /* لون رمادي هادي للعنوان */
+  color: #64748b;
   font-size: 0.95rem;
   margin-bottom: 15px;
   text-align: left;
@@ -187,14 +187,14 @@
 
 .options-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* عمودين جمب بعض */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
 }
 
 .option-card {
   background-color: #ffffff;
-  border: 1px solid #e2e8f0; /* حدود خفيفة */
+  border: 1px solid #e2e8f0;
   border-radius: 8px; 
   padding: 16px 20px;
   display: flex;
@@ -202,12 +202,12 @@
   cursor: pointer;
   text-align: left;
   transition: all 0.2s ease;
-  box-shadow: none; /* بدون ظل عشان تبقى فلات */
+  box-shadow: none;
   width: 100%;
 }
 
 .option-card:hover:not(:disabled) {
-  background-color: #f8fafc; /* رصاصي فاتح عند الهوفر */
+  background-color: #f8fafc;
   border-color: #cbd5e1;
 }
 
@@ -215,7 +215,7 @@
   margin-right: 15px;
   display: flex;
   align-items: center;
-  color: #64748b; /* لون الأيقونة رمادي متناسق */
+  color: #64748b;
 }
 
 .option-text {
@@ -223,14 +223,6 @@
   font-size: 0.95rem;
   font-weight: 400;
 }
-
-/* عشان الموبايل ينزلهم تحت بعض */
-@media (max-width: 768px) {
-  .options-grid {
-    grid-template-columns: 1fr; 
-  }
-}
-/* --------------------------------------------------- */
 
 /* منطقة الإدخال */
 .chat-input-area {
@@ -305,7 +297,7 @@
   40% { transform: scale(1); opacity: 1; }
 }
 
-/* تنسيقات الأزرار النهائية اللي بتظهر بعد النتيجة */
+/* تنسيقات الأزرار النهائية */
 .start-new-conv-btn {
   width: 100%;
   background-color: #3b82f6;
@@ -323,7 +315,6 @@
   background-color: #2563eb;
 }
 
-/* Auto button — بيبقى دايم في آخر الـ options بلون مختلف شوية */
 .option-card-auto {
   border-style: dashed;
   border-color: #3b82f6;
@@ -334,16 +325,6 @@
   color: #3b82f6;
 }
 
-.option-card-auto .option-text {
-  color: #3b82f6;
-  font-weight: 500;
-}
-
-.option-card-auto {
-  border-style: dashed;
-  border-color: #3b82f6;
-}
-.option-card-auto .option-icon,
 .option-card-auto .option-text {
   color: #3b82f6;
   font-weight: 500;
@@ -374,4 +355,89 @@
 
 .view-results-btn svg {
   margin-top: 2px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE — تطابق الـ Navbar بالظبط عشان مفيش جاب (Gap)
+   ══════════════════════════════════════════════════════════════ */
+
+/* تابلت */
+@media (max-width: 991.98px) {
+  .chat-header {
+    top: 72px; /* نفس ارتفاع الناف بار في التابلت */
+    padding: 12px 5vw;
+  }
+  .chat-wrapper {
+    padding-top: 142px; /* 72 (الناف بار) + 70 (الهيدر تقريباً) */
+  }
+  .header-title {
+    font-size: 1.15rem;
+  }
+  .new-chat-btn {
+    padding: 7px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+/* موبايل */
+@media (max-width: 600px) {
+  .chat-header {
+    top: 64px; /* نفس ارتفاع الناف بار في الموبايل */
+    padding: 12px 4vw;
+  }
+  .chat-wrapper {
+    padding-top: 124px; /* 64 (الناف بار) + 60 (الهيدر تقريباً) */
+  }
+  .bot-avatar-header {
+    width: 40px;
+    height: 40px;
+  }
+  .bot-avatar-header svg {
+    width: 20px;
+    height: 20px;
+  }
+  .header-title {
+    font-size: 1.05rem;
+  }
+  .online-status {
+    font-size: 0.8rem;
+  }
+  .new-chat-btn {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .message-bubble {
+    max-width: 85%;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr; /* ينزل تحت بعض على الموبايل */
+    gap: 12px;
+  }
+
+  .option-card {
+    padding: 12px 16px;
+  }
+}
+
+/* موبايل صغير جداً */
+@media (max-width: 380px) {
+  .chat-header {
+    top: 58px; /* نفس ارتفاع الناف بار في الموبايل الصغير */
+    padding: 10px 4vw;
+  }
+  .chat-wrapper {
+    padding-top: 113px; /* 58 (الناف بار) + 55 (الهيدر تقريباً) */
+  }
+  .bot-avatar-header {
+    width: 36px;
+    height: 36px;
+  }
+  .header-title {
+    font-size: 1rem;
+  }
 }
