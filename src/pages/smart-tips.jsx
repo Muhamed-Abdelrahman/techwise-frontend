@@ -303,7 +303,7 @@ const SmartTips = ({ setCurrentPage }) => (
         </button>
       </div>
     </div>
-    <Topfooter />
+    
   </>
 );
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import "../styles/CartPage.css";
 
 const BASE_URL = "https://techwiseapp.runasp.net";
-const USE_MOCK = false; // ← غيّرها لـ false لما الباك يشتغل
+const USE_MOCK = false;
 
 // ============================================================
 // MOCK RESPONSES
@@ -61,7 +61,6 @@ const getToken = () => localStorage.getItem("accessToken");
 const formatCategory = (cat = "") =>
   cat.replace(/_/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
 
-/* ── API helpers ── */
 const cartAPI = {
   getCart: async () => {
     if (USE_MOCK) {
@@ -126,6 +125,16 @@ const CartPage = ({ setCurrentPage }) => {
   const [error, setError] = useState(null);
   const [removingId, setRemovingId] = useState(null);
   const [updatingId, setUpdatingId] = useState(null);
+
+  // ✅ Auth Guard - لو مش logged in روح signup
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setCurrentPage("signup");
+    }
+  }, [isLoggedIn, setCurrentPage]);
+
+  if (!isLoggedIn) return null;
 
   /* load cart */
   const loadCart = useCallback(async () => {
@@ -413,10 +422,6 @@ const CartPage = ({ setCurrentPage }) => {
               <span>Subtotal ({totalItems} items)</span>
               <span>${total.toFixed(2)}</span>
             </div>
-            {/* <div className="cp-summary-row">
-              <span>Shipping</span>
-              <span className="cp-free">Free</span>
-            </div> */}
             <div className="cp-summary-row">
               <span>Tax</span>
               <span>$0.00</span>

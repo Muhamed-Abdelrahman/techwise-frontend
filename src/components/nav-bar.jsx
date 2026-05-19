@@ -32,29 +32,19 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
   const [cartCount, setCartCount] = useState(0);
 
   const fetchAvatar = async () => {
-    if (!isLoggedIn) {
-      setAvatarSrc(DEFAULT_AVATAR);
-      return;
-    }
+    if (!isLoggedIn) { setAvatarSrc(DEFAULT_AVATAR); return; }
     try {
       const data = await ProfileService.getProfile();
       setAvatarSrc(data.profilePhoto || DEFAULT_AVATAR);
-    } catch {
-      setAvatarSrc(DEFAULT_AVATAR);
-    }
+    } catch { setAvatarSrc(DEFAULT_AVATAR); }
   };
 
   const fetchUnreadCount = async () => {
-    if (!isLoggedIn) {
-      setUnreadCount(0);
-      return;
-    }
+    if (!isLoggedIn) { setUnreadCount(0); return; }
     try {
       const data = await NotificationListService.getUnreadCount();
       setUnreadCount(data.unreadCount || 0);
-    } catch {
-      setUnreadCount(0);
-    }
+    } catch { setUnreadCount(0); }
   };
 
   const fetchCartCount = async () => {
@@ -72,9 +62,7 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
       }
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
       setCartCount(Array.isArray(cart) ? cart.length : 0);
-    } catch {
-      setCartCount(0);
-    }
+    } catch { setCartCount(0); }
   };
 
   useEffect(() => {
@@ -101,23 +89,11 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
     return () => document.removeEventListener("visibilitychange", h);
   }, [isLoggedIn]);
 
-  const closeMenu = (page) => {
-    setCurrentPage(page);
-    setMenuOpen(false);
-  };
-  const goToChatbot = () => {
-    setMenuOpen(false);
-    setCurrentPage("chatbot");
-  };
+  const closeMenu = (page) => { setCurrentPage(page); setMenuOpen(false); };
+  const goToChatbot = () => { setMenuOpen(false); setCurrentPage("chatbot"); };
 
   const isActive = (page) => currentPage === page;
-  const toolPages = [
-    "used-device",
-    "compare",
-    "performance",
-    "new-device",
-    "upgrade",
-  ];
+  const toolPages = ["used-device", "compare", "performance", "new-device", "upgrade"];
   const isToolsActive = toolPages.includes(currentPage);
 
   const aiFeatures = [
@@ -186,10 +162,7 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
         </div>
 
         {/* Desktop Links */}
-        <ul
-          className="navbar-links mx-auto d-none d-lg-flex mb-0"
-          style={{ listStyle: "none" }}
-        >
+        <ul className="navbar-links mx-auto d-none d-lg-flex mb-0" style={{ listStyle: "none" }}>
           <li className="nav-item">
             <button
               className={`navbar-btn${isActive("home") ? " nav-link-active" : ""}`}
@@ -212,13 +185,8 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
                 <li className="dropdown-section-label">AI-Powered</li>
                 {aiFeatures.map((item) => (
                   <li key={item.key}>
-                    <button
-                      className="dropdown-item"
-                      onClick={() => handleDropdownClick(item)}
-                    >
-                      <span className={`dd-icon dd-icon-${item.iconClass}`}>
-                        {item.icon}
-                      </span>
+                    <button className="dropdown-item" onClick={() => handleDropdownClick(item)}>
+                      <span className={`dd-icon dd-icon-${item.iconClass}`}>{item.icon}</span>
                       <span className="dd-text">
                         <span className="dd-title">{item.label}</span>
                         <span className="dd-sub">{item.sub}</span>
@@ -227,21 +195,12 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
                     </button>
                   </li>
                 ))}
-
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-
+                <li><hr className="dropdown-divider" /></li>
                 <li className="dropdown-section-label">Analysis Tools</li>
                 {analysisTools.map((item) => (
                   <li key={item.key}>
-                    <button
-                      className="dropdown-item"
-                      onClick={() => handleDropdownClick(item)}
-                    >
-                      <span className={`dd-icon dd-icon-${item.iconClass}`}>
-                        {item.icon}
-                      </span>
+                    <button className="dropdown-item" onClick={() => handleDropdownClick(item)}>
+                      <span className={`dd-icon dd-icon-${item.iconClass}`}>{item.icon}</span>
                       <span className="dd-text">
                         <span className="dd-title">{item.label}</span>
                         <span className="dd-sub">{item.sub}</span>
@@ -273,10 +232,7 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
         </ul>
 
         {/* Desktop Actions */}
-        <div
-          className="navbar-actions d-none d-lg-flex"
-          style={{ flexShrink: 0 }}
-        >
+        <div className="navbar-actions d-none d-lg-flex" style={{ flexShrink: 0 }}>
           {isLoggedIn ? (
             <>
               <button
@@ -291,30 +247,25 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
                 title="Notifications"
               >
                 <FaRegBell className="nav-icon" />
-                {unreadCount > 0 && (
-                  <span className="notif-badge">{unreadCount}</span>
-                )}
+                {unreadCount > 0 && <span className="notif-badge">{unreadCount}</span>}
               </button>
+              {/* ✅ Cart - logged in فقط */}
               <button
                 className={`nav-icon-btn position-relative${isActive("cart") ? " nav-icon-active" : ""}`}
                 onClick={() => setCurrentPage("cart")}
                 title="Cart"
               >
                 <FaShoppingCart className="nav-icon" />
-                {cartCount > 0 && (
-                  <span className="cart-badge">{cartCount}</span>
-                )}
+                {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
               </button>
-              <button
-                className="chat"
-                onClick={() => setCurrentPage("chatbot")}
-              >
+              <button className="chat" onClick={() => setCurrentPage("chatbot")}>
                 <img src={chat} alt="ChatBot" />
                 <span className="chat-online-dot" />
               </button>
             </>
           ) : (
             <>
+              {/* ✅ Cart اتشالت من هنا */}
               <button
                 className="btn btn-outline-primary me-2"
                 onClick={() => setCurrentPage("signup")}
@@ -327,71 +278,40 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
               >
                 Login
               </button>
-              <button
-                className={`nav-icon-btn position-relative${isActive("cart") ? " nav-icon-active" : ""}`}
-                onClick={() => setCurrentPage("cart")}
-                title="Cart"
-              >
-                <FaShoppingCart className="nav-icon" />
-                {cartCount > 0 && (
-                  <span className="cart-badge">{cartCount}</span>
-                )}
-              </button>
             </>
           )}
         </div>
 
         {/* Mobile Actions */}
-        <div
-          className="d-flex d-lg-none align-items-center"
-          style={{ gap: "6px", flexShrink: 0 }}
-        >
+        <div className="d-flex d-lg-none align-items-center" style={{ gap: "6px", flexShrink: 0 }}>
           {isLoggedIn ? (
             <>
               <button
                 onClick={() => setCurrentPage("profile")}
                 className={`nav-icon-btn avatar-btn${isActive("profile") ? " nav-icon-active" : ""}`}
               >
-                <img
-                  src={avatarSrc}
-                  alt="profile"
-                  className="avatar avatar-sm"
-                />
+                <img src={avatarSrc} alt="profile" className="avatar avatar-sm" />
               </button>
               <button
                 className={`nav-icon-btn position-relative${isActive("notifications") ? " nav-icon-active" : ""}`}
-                onClick={() => {
-                  setCurrentPage("notifications");
-                  setMenuOpen(false);
-                }}
+                onClick={() => { setCurrentPage("notifications"); setMenuOpen(false); }}
                 title="Notifications"
               >
                 <FaRegBell className="nav-icon-sm" />
-                {unreadCount > 0 && (
-                  <span className="notif-badge notif-badge-sm">
-                    {unreadCount}
-                  </span>
-                )}
+                {unreadCount > 0 && <span className="notif-badge notif-badge-sm">{unreadCount}</span>}
               </button>
+              {/* ✅ Cart - logged in فقط */}
               <button
                 className={`nav-icon-btn position-relative${isActive("cart") ? " nav-icon-active" : ""}`}
-                onClick={() => {
-                  setCurrentPage("cart");
-                  setMenuOpen(false);
-                }}
+                onClick={() => { setCurrentPage("cart"); setMenuOpen(false); }}
                 title="Cart"
               >
                 <FaShoppingCart className="nav-icon-sm" />
-                {cartCount > 0 && (
-                  <span className="cart-badge cart-badge-sm">{cartCount}</span>
-                )}
+                {cartCount > 0 && <span className="cart-badge cart-badge-sm">{cartCount}</span>}
               </button>
               <button
                 className="chat chat-sm"
-                onClick={() => {
-                  setCurrentPage("chatbot");
-                  setMenuOpen(false);
-                }}
+                onClick={() => { setCurrentPage("chatbot"); setMenuOpen(false); }}
               >
                 <img src={chat} alt="ChatBot" />
                 <span className="chat-online-dot" />
@@ -399,6 +319,7 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
             </>
           ) : (
             <>
+              {/* ✅ Cart اتشالت من هنا */}
               <button
                 className="btn btn-outline-primary btn-sm"
                 onClick={() => setCurrentPage("signup")}
@@ -411,27 +332,10 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
               >
                 Login
               </button>
-              <button
-                className={`nav-icon-btn position-relative${isActive("cart") ? " nav-icon-active" : ""}`}
-                onClick={() => {
-                  setCurrentPage("cart");
-                  setMenuOpen(false);
-                }}
-              >
-                <FaShoppingCart className="nav-icon-sm" />
-                {cartCount > 0 && (
-                  <span className="cart-badge cart-badge-sm">{cartCount}</span>
-                )}
-              </button>
             </>
           )}
           <button
-            style={{
-              border: "none",
-              background: "transparent",
-              cursor: "pointer",
-              padding: "4px 8px",
-            }}
+            style={{ border: "none", background: "transparent", cursor: "pointer", padding: "4px 8px" }}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -459,15 +363,9 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
                   <li key={item.key}>
                     <button
                       className={`mob-menu-link mob-menu-rich${isActive(item.key) ? " active" : ""}`}
-                      onClick={() =>
-                        item.isChat ? goToChatbot() : closeMenu(item.key)
-                      }
+                      onClick={() => item.isChat ? goToChatbot() : closeMenu(item.key)}
                     >
-                      <span
-                        className={`mob-link-icon mob-link-icon-${item.iconClass}`}
-                      >
-                        {item.icon}
-                      </span>
+                      <span className={`mob-link-icon mob-link-icon-${item.iconClass}`}>{item.icon}</span>
                       <span className="mob-link-text">
                         <span className="mob-link-title">{item.label}</span>
                         <span className="mob-link-sub">{item.sub}</span>
@@ -483,11 +381,7 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
                       className={`mob-menu-link mob-menu-rich${isActive(item.key) ? " active" : ""}`}
                       onClick={() => closeMenu(item.key)}
                     >
-                      <span
-                        className={`mob-link-icon mob-link-icon-${item.iconClass}`}
-                      >
-                        {item.icon}
-                      </span>
+                      <span className={`mob-link-icon mob-link-icon-${item.iconClass}`}>{item.icon}</span>
                       <span className="mob-link-text">
                         <span className="mob-link-title">{item.label}</span>
                         <span className="mob-link-sub">{item.sub}</span>
@@ -496,6 +390,7 @@ const Navbar = ({ setCurrentPage, currentPage, isLoggedIn }) => {
                   </li>
                 ))}
 
+                {/* ✅ Cart في المobile menu - logged in فقط */}
                 <li>
                   <button
                     className={`mob-menu-link${isActive("cart") ? " active" : ""}`}

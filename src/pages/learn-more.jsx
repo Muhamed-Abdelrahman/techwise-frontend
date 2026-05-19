@@ -266,8 +266,6 @@ export default function LearnMore({ setCurrentPage }) {
           ))}
         </div>
       </div>
-
-      <Topfooter />
     </div>
   );
 }

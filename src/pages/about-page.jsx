@@ -576,7 +576,6 @@ const AboutPage = ({ setCurrentPage }) => {
           </div>
         </div>
       </div>
-      <TopFooter />
     </>
   );
 };

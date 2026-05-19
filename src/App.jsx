@@ -25,9 +25,7 @@ import DashboardPage from "./pages/dashboard-pag.jsx";
 import CompareDevicesPage from "./pages/compare-devices-page.jsx";
 import NotificationsPage from "./pages/notifications-page.jsx";
 import ProfilePage from "./pages/profile-page.jsx";
-import RecommendationsPage from "./pages/recommendations-page.jsx";
 import UsedDevicesEvaluation from "./pages/used-devices-evaluation.jsx";
-import UpgradeDevice from "./pages/upgrade-device.jsx";
 import PerformanceAnalysis from "./pages/performance-analysis.jsx";
 import LearnMore from "./pages/learn-more.jsx";
 import SmartTips from "./pages/smart-tips.jsx";
@@ -157,20 +155,12 @@ function AppContent() {
             element={<CompareDevicesPage setCurrentPage={setCurrentPage} />}
           />
           <Route
-            path="/new-device"
-            element={<RecommendationsPage setCurrentPage={setCurrentPage} />}
-          />
-          <Route
             path="/performance"
             element={<PerformanceAnalysis setCurrentPage={setCurrentPage} />}
           />
           <Route
             path="/used-device"
             element={<UsedDevicesEvaluation setCurrentPage={setCurrentPage} />}
-          />
-          <Route
-            path="/upgrade"
-            element={<UpgradeDevice setCurrentPage={setCurrentPage} />}
           />
 
           <Route

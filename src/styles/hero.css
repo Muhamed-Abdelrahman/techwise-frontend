@@ -281,7 +281,7 @@
 /* ---------- BRANDS ---------- */
 .hero-brands-slider {
   padding-bottom: 75px;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .hero-brands-track {

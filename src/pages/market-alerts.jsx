@@ -273,7 +273,6 @@ export default function MarketAlerts({ setCurrentPage }) {
         </div>
 
       </div>
-      <Topfooter />
     </>
   );
 }

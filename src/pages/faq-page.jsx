@@ -151,7 +151,6 @@ export default function FAQPage({ setCurrentPage }) {
         </div>
 
       </div>
-      <Topfooter/>
     </div>
   );
 }
